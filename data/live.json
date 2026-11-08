@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-08T22:07:33.236Z",
+  "generatedAt": "2026-11-08T23:07:55.658Z",
   "recentPayments": [
+    {
+      "player": "parsleyjosh",
+      "edition": "java",
+      "items": [
+        "Season Starter Kit"
+      ],
+      "at": 1794178706490
+    },
     {
       "player": "parsleyjosh",
       "edition": "java",
@@ -50,5 +58,13 @@
     "title": "Monthly server costs",
     "percent": 0
   },
-  "players": null
+  "server": {
+    "online": true,
+    "players": 0,
+    "max": 125
+  },
+  "players": {
+    "online": 0,
+    "max": 125
+  }
 }
