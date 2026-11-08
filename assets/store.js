@@ -56,6 +56,26 @@
     }
     return out;
   }
+  // Package text: "## Heading", "- bullet", "> tip", "![alt](assets/img/x.webp)" and **bold**. Built as DOM nodes, never HTML.
+  function inline(t) {
+    const parts = String(t).split(/(\*\*[^*]+\*\*)/g).filter(Boolean);
+    return parts.map(x => /^\*\*[^*]+\*\*$/.test(x) ? el('b', { text: x.slice(2, -2) }) : document.createTextNode(x));
+  }
+  function richText(text) {
+    const out = []; let list = null;
+    for (const raw of String(text || '').split(/\r?\n/)) {
+      const t = raw.trim();
+      if (!t) { list = null; continue; }
+      let m;
+      if (/^[-*•]\s+/.test(t)) { if (!list) { list = el('ul', { class: 'perks' }); out.push(list); } list.append(el('li', {}, el('span', {}, ...inline(t.replace(/^[-*•]\s+/, ''))))); continue; }
+      list = null;
+      if ((m = /^#{1,3}\s+(.+)$/.exec(t))) out.push(el('h4', { class: 'd-head' }, ...inline(m[1])));
+      else if ((m = /^>\s*(.+)$/.exec(t))) out.push(el('p', { class: 'd-tip' }, ...inline(m[1])));
+      else if ((m = /^!\[([^\]]*)\]\(([^)]+)\)$/.exec(t))) { const src = safeImg(m[2]); if (src) out.push(el('img', { class: 'd-img', src, alt: m[1], loading: 'lazy' })); }
+      else out.push(el('p', {}, ...inline(t)));
+    }
+    return out;
+  }
   const segValue = (root, attr) => root.querySelector(`[${attr}][aria-checked="true"]`)?.getAttribute(attr) || 'java';
   function segSet(root, attr, value) { root.querySelectorAll(`[${attr}]`).forEach(b => b.setAttribute('aria-checked', String(b.getAttribute(attr) === value))); }
 
@@ -163,7 +183,7 @@
 
   function card(p) {
     const c = S.catalog, cur = c.store.currency;
-    const perks = lines(p.description).bullets.slice(0, 3);
+    const perks = lines(p.body || p.description).bullets.slice(0, 3).map(b => b.replace(/\*\*/g, ''));
     const open = () => go(`#/p/${encodeURIComponent(p.id)}`);
     return el('article', { class: 'pkg' },
       p.badge ? el('span', { class: `badge${/save|value|everything/i.test(p.badge) ? ' gold' : ''}`, text: p.badge }) : null,
@@ -189,8 +209,7 @@
     $('pd-price').replaceChildren(priceLine(p, cur));
     $('pd-req').hidden = !p.upgradeFromName;
     $('pd-req').textContent = p.upgradeFromName ? `Upgrade: you need to own ${p.upgradeFromName} first. You only pay the difference.` : '';
-    const d = lines(p.description);
-    $('pd-desc').replaceChildren(...d.paras.map(t => el('p', { text: t })), d.bullets.length ? el('ul', {}, d.bullets.map(t => el('li', { text: t }))) : '');
+    $('pd-desc').replaceChildren(...richText(p.body || p.description));
     // included items / possible rewards
     const items = Array.isArray(p.contents) ? p.contents : [];
     $('pd-contents').hidden = !items.length;
@@ -314,9 +333,19 @@
         el('img', { src: head(r.player, r.edition), alt: '', loading: 'lazy' }),
         el('div', {}, el('b', { text: r.player }), el('span', { text: `${r.items.join(', ')} · ${ago(r.at)}` })))));
     }
-    const fresh = l.players && Date.now() - Date.parse(l.generatedAt) < 10 * 60e3;
-    if (fresh) setPlayers(l.players.online, true); else pingServer(c.store.serverIp);
+    serverStatus(l, c.store.serverIp);
   }
+  // Status comes from the FinalityStore plugin heartbeats (published in live.json); if that data is old
+  // (store PC off), fall back to a public server ping.
+  function serverStatus(l, ip) {
+    const age = l?.generatedAt ? Date.now() - Date.parse(l.generatedAt) : Infinity;
+    if (l?.server && age < 25 * 60e3) setPlayers(l.server.players, l.server.online);
+    else pingServer(ip);
+  }
+  setInterval(async () => {
+    if (document.hidden) return;
+    try { const l = await (await fetch(`data/live.json?t=${Date.now()}`)).json(); serverStatus(l, S.catalog?.store?.serverIp); } catch { /* keep */ }
+  }, 60e3);
   function setPlayers(n, online) {
     $('player-tag').classList.toggle('off', !online);
     $('player-count').textContent = online ? `${n} online` : 'Offline';

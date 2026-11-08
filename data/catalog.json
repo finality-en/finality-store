@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T22:07:33.236Z",
+  "generatedAt": "2026-11-08T22:24:58.657Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -25,7 +25,7 @@
       "id": "rank-upgrades",
       "name": "Rank Upgrades",
       "description": "Already have a rank? Only pay the difference.",
-      "image": "assets/img/rank-mvp.webp",
+      "image": "assets/img/upgrade-vip-mvp.webp",
       "guiIcon": "EXPERIENCE_BOTTLE"
     },
     {
@@ -309,7 +309,7 @@
       "name": "VIP → MVP",
       "categoryId": "rank-upgrades",
       "description": "Already VIP? Upgrade to MVP and only pay the difference.",
-      "image": "assets/img/rank-mvp.webp",
+      "image": "assets/img/upgrade-vip-mvp.webp",
       "kind": "standard",
       "badge": "",
       "giftable": false,
@@ -330,7 +330,7 @@
       "id": "vip-rank",
       "name": "VIP Rank",
       "categoryId": "ranks",
-      "description": "The first supporter rank.\n- [VIP] tag and coloured chat\n- 5 homes, no home cooldown or warm-up\n- /hat, /anvil, /workbench, /enderchest, /sit, /dispose\n- 1 player vault (/pv 1)\n- VIP kit\n- Show items in chat",
+      "description": "Perks\n- Exclusive VIP username\n- 1 Player Vault (/pv)\n- 2 Rows per Player Vault\n- Up to 5 Homes\n- Instant /home\n- Bypass TP warmups\n- Elytra Speedometer\n- /craft\n- /enderchest\n- /anvil\n- /chatcolor – Use colored chat messages\n- /trash\n- /toggletp – Enable or disable teleport requests\n- /sit\n- /hat – Wear almost any block as a hat\n- /ping – View your latency\n- Exclusive VIP Kit\nRestrictions\n- Shulker Boxes and Bundles cannot be stored in Player Vaults.\nSee the kit below.",
       "image": "assets/img/rank-vip.webp",
       "kind": "standard",
       "badge": "",
@@ -346,7 +346,8 @@
       "links": {
         "once": "https://buy.stripe.com/28E7sMciH3249vsb7S9AA01",
         "monthly": null
-      }
+      },
+      "body": "## Perks\n- Exclusive **VIP** username\n- **1 Player Vault** (/pv)\n- **2 Rows** per Player Vault\n- Up to **5 Homes**\n- **Instant /home**\n- **Bypass TP warmups**\n- **Elytra Speedometer**\n- **/craft**\n- **/enderchest**\n- **/anvil**\n- **/chatcolor** – Use colored chat messages\n- **/trash**\n- **/toggletp** – Enable or disable teleport requests\n- **/sit**\n- **/hat** – Wear almost any block as a hat\n- **/ping** – View your latency\n- **Exclusive VIP Kit**\n## Restrictions\n- Shulker Boxes and Bundles cannot be stored in Player Vaults.\n> ➡️ See the kit below.\n![VIP kit](assets/img/kit-vip.webp)"
     },
     {
       "id": "25-gift-card",
@@ -551,7 +552,7 @@
       "name": "MVP → Finality",
       "categoryId": "rank-upgrades",
       "description": "Already MVP? Upgrade to Finality and only pay the difference.",
-      "image": "assets/img/rank-finality.webp",
+      "image": "assets/img/upgrade-mvp-finality.webp",
       "kind": "standard",
       "badge": "",
       "giftable": false,
@@ -572,7 +573,7 @@
       "id": "mvp-rank",
       "name": "MVP Rank",
       "categoryId": "ranks",
-      "description": "Everything in VIP, plus:\n- [MVP] tag\n- 10 homes, 2 player vaults\n- /grindstone, /smithingtable, /clear\n- No RTP cooldown, no /tpa or /spawn warm-up\n- MVP kit\n- Show your inventory and ender chest in chat",
+      "description": "Includes all VIP perks, plus:\n- 2 Player Vaults\n- Up to 10 Homes\n- No RTP Cooldown\n- Instant /tpa\n- Instant /home\n- Instant /spawn\n- /smithingtable\n- /grindstone\n- /clear – Instantly clear your inventory\n- [inv] & [ender] item showcase tags in chat\n- Exclusive MVP Kit\nSee the kit below, or use /kit in game to preview it!",
       "image": "assets/img/rank-mvp.webp",
       "kind": "standard",
       "badge": "Popular",
@@ -588,13 +589,14 @@
       "links": {
         "once": "https://buy.stripe.com/bJefZi0zZfOQ0YWgsc9AA02",
         "monthly": null
-      }
+      },
+      "body": "## Includes all VIP perks, plus:\n- **2 Player Vaults**\n- Up to **10 Homes**\n- **No RTP Cooldown**\n- **Instant /tpa**\n- **Instant /home**\n- **Instant /spawn**\n- **/smithingtable**\n- **/grindstone**\n- **/clear** – Instantly clear your inventory\n- **[inv]** & **[ender]** item showcase tags in chat\n- **Exclusive MVP Kit**\n> ➡️ See the kit below, or use /kit in game to preview it!\n![MVP kit](assets/img/kit-mvp.webp)"
     },
     {
       "id": "finality-rank",
       "name": "Finality Rank",
       "categoryId": "ranks",
-      "description": "The top rank. Everything in MVP, plus:\n- [FINALITY] tag\n- 25 homes, 5 player vaults\n- /nick, /near, /repair hand\n- /glow in any colour, colour item names with /itemname\n- No /back cooldown or warm-up\n- Finality kit",
+      "description": "Includes all MVP perks, plus:\n- 5 Player Vaults\n- Up to 25 Homes\n- /near – See nearby players\n- /nick – Change your chat nickname\n- /itemname – Rename items with color formatting\n- /repair – Repair held item (5-minute cooldown)\n- No /back cooldown\n- Instant /back\n- /glow – Make yourself glow\n- Exclusive Finality Kit\nSee the kit below, or use /kit in game to preview it!",
       "image": "assets/img/rank-finality.webp",
       "kind": "standard",
       "badge": "",
@@ -610,7 +612,8 @@
       "links": {
         "once": "https://buy.stripe.com/bJebJ2aaz7ikgXU8ZK9AA03",
         "monthly": null
-      }
+      },
+      "body": "## Includes all MVP perks, plus:\n- **5 Player Vaults**\n- Up to **25 Homes**\n- **/near** – See nearby players\n- **/nick** – Change your chat nickname\n- **/itemname** – Rename items with color formatting\n- **/repair** – Repair held item (5-minute cooldown)\n- **No /back cooldown**\n- **Instant /back**\n- **/glow** – Make yourself glow\n- **Exclusive Finality Kit**\n> ➡️ See the kit below, or use /kit in game to preview it!\n![Finality kit](assets/img/kit-finality.webp)"
     },
     {
       "id": "bundle-frostbite",
@@ -718,7 +721,7 @@
       "name": "VIP → Finality",
       "categoryId": "rank-upgrades",
       "description": "Already VIP? Go straight to Finality and only pay the difference.",
-      "image": "assets/img/rank-finality.webp",
+      "image": "assets/img/upgrade-vip-finality.webp",
       "kind": "standard",
       "badge": "",
       "giftable": false,
