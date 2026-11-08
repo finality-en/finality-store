@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T21:54:58.610Z",
+  "generatedAt": "2026-11-08T22:07:33.236Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -659,14 +659,14 @@
       "id": "relic-key",
       "name": "Relic Key",
       "categoryId": "crate-keys",
-      "description": "A mythic key for the Relic Vault. Rewards never repeat in the same opening.\n- Demonic, Astral and Glacier gear\n- Class rolls and tokens",
+      "description": "A mythic key for the Relic Vault. Rewards never repeat in the same opening.\r\n- Demonic, Astral and Glacier gear\r\n- Class rolls and tokens",
       "image": "assets/img/key-relic.webp",
       "kind": "standard",
       "badge": "",
       "giftable": true,
       "upgradeFrom": null,
       "upgradeFromName": null,
-      "price": 500,
+      "price": 725,
       "compareAtPrice": null,
       "monthlyPrice": null,
       "contentsTitle": "Possible rewards",
@@ -709,7 +709,7 @@
       ],
       "guiIcon": "NETHER_STAR",
       "links": {
-        "once": "https://buy.stripe.com/28EcN64Qf5ac4b8b7S9AA0b",
+        "once": "https://buy.stripe.com/9B6cN6gyX7ikcHE4Ju9AA0o",
         "monthly": null
       }
     },
@@ -739,15 +739,15 @@
       "id": "relic-key-3",
       "name": "3× Relic Key",
       "categoryId": "crate-keys",
-      "description": "Three mythic keys for the Relic Vault.\n- Demonic, Astral and Glacier gear\n- Class rolls and tokens",
+      "description": "Three mythic keys for the Relic Vault.\r\n- Demonic, Astral and Glacier gear\r\n- Class rolls and tokens",
       "image": "assets/img/key-relic-3.webp",
       "kind": "standard",
       "badge": "Save 20%",
       "giftable": true,
       "upgradeFrom": null,
       "upgradeFromName": null,
-      "price": 1200,
-      "compareAtPrice": 1500,
+      "price": 1750,
+      "compareAtPrice": 2175,
       "monthlyPrice": null,
       "contentsTitle": "Possible rewards",
       "contents": [
@@ -789,7 +789,7 @@
       ],
       "guiIcon": "NETHER_STAR",
       "links": {
-        "once": "https://buy.stripe.com/fZufZi2I7eKM5fca3O9AA0c",
+        "once": "https://buy.stripe.com/bJe7sMciH6eg2303Fq9AA0p",
         "monthly": null
       }
     },
@@ -883,15 +883,15 @@
       "id": "key-bundle",
       "name": "Key Bundle",
       "categoryId": "crate-keys",
-      "description": "A bit of everything.\n- 3× Finality Key\n- 2× Relic Key\n- 1× Kill Effect Lootbox",
+      "description": "A bit of everything.\r\n- 3× Finality Key\r\n- 2× Relic Key\r\n- 1× Kill Effect Lootbox",
       "image": "assets/img/key-bundle.webp",
       "kind": "standard",
       "badge": "Best value",
       "giftable": true,
       "upgradeFrom": null,
       "upgradeFromName": null,
-      "price": 1800,
-      "compareAtPrice": 2350,
+      "price": 2000,
+      "compareAtPrice": 2500,
       "monthlyPrice": null,
       "contentsTitle": "Included",
       "contents": [
@@ -913,7 +913,7 @@
       ],
       "guiIcon": "CHEST_MINECART",
       "links": {
-        "once": "https://buy.stripe.com/dRmcN64QfgSUePM2Bm9AA0d",
+        "once": "https://buy.stripe.com/7sY9AU4Qf0TWgXU8ZK9AA0q",
         "monthly": null
       }
     },
