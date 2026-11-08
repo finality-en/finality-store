@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T22:24:58.657Z",
+  "generatedAt": "2026-11-08T22:40:58.722Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -25,7 +25,7 @@
       "id": "rank-upgrades",
       "name": "Rank Upgrades",
       "description": "Already have a rank? Only pay the difference.",
-      "image": "assets/img/upgrade-vip-mvp.webp",
+      "image": "assets/img/cat-upgrades.webp",
       "guiIcon": "EXPERIENCE_BOTTLE"
     },
     {
