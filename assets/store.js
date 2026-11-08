@@ -102,7 +102,7 @@
     if (r.kind === 'p' && pkgOf(r.id)) {
       const p = pkgOf(r.id);
       view.append(categoryView(p.categoryId));
-      if (!$('pkg-dialog').open) openPackage(p);
+      if (!$('pkg-dialog').open || S.current?.id !== p.id) openPackage(p);
     } else if (r.kind === 'c' && catOf(r.id)) {
       view.append(categoryView(r.id));
     } else {
