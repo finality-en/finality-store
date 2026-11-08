@@ -203,15 +203,20 @@
     const c = S.catalog, cur = c.store.currency;
     const perks = lines(p.body || p.description).bullets.slice(0, 3).map(b => b.replace(/\*\*/g, ''));
     const open = () => go(`#/p/${encodeURIComponent(p.id)}`);
-    return el('article', { class: 'pkg' },
+    const blocked = upgradeBlock(p), owns = p.upgradeTier && S.me && S.myTier === p.upgradeTier;
+    const req = !p.upgradeFromName ? null
+      : blocked ? el('div', { class: 'req bad', text: `Needs ${tierName(p.upgradeTier)}: ${S.me.name} ${S.myTier ? `has ${tierName(S.myTier)}` : 'has no rank'}` })
+      : owns ? el('div', { class: 'req ok', text: `✓ You have ${tierName(p.upgradeTier)}` })
+      : el('div', { class: 'req', text: `Requires ${p.upgradeTier ? tierName(p.upgradeTier) : p.upgradeFromName}` });
+    return el('article', { class: blocked ? 'pkg locked' : 'pkg' },
       p.badge ? el('span', { class: `badge${/save|value|everything/i.test(p.badge) ? ' gold' : ''}`, text: p.badge }) : null,
       el('button', { class: 'pkg-art', type: 'button', onclick: open, 'aria-label': `View ${p.name}` }, el('img', { src: safeImg(p.image) || 'assets/img/logo.webp', alt: '', loading: 'lazy' })),
       el('h3', { text: p.name }),
-      p.upgradeFromName ? el('div', { class: 'req', text: `Requires ${p.upgradeFromName}` }) : null,
+      req,
       perks.length ? el('ul', { class: 'perks' }, perks.map(t => el('li', { text: t }))) : null,
       el('div', { class: 'pkg-foot' }, priceLine(p, cur),
         el('div', { class: 'pkg-actions' },
-          el('button', { class: 'btn', type: 'button', onclick: () => quickBuy(p), text: c.store.checkoutApi ? 'Add to basket' : 'Buy now' }),
+          el('button', { class: 'btn', type: 'button', disabled: !!blocked, onclick: () => quickBuy(p), text: blocked ? `Needs ${tierName(p.upgradeTier)}` : c.store.checkoutApi ? 'Add to basket' : 'Buy now' }),
           el('button', { class: 'btn ghost more-btn', type: 'button', onclick: open, 'aria-label': `Details for ${p.name}`, text: 'Details' }))));
   }
 
@@ -425,7 +430,7 @@
     renderMe(); renderBasketCount(); snow();
 
     $('pb-login').addEventListener('click', () => openLogin());
-    $('pb-logout').addEventListener('click', () => { S.me = null; S.myTier = undefined; save('fs_player', null); renderMe(); toast('Logged out'); });
+    $('pb-logout').addEventListener('click', () => { S.me = null; S.myTier = undefined; save('fs_player', null); renderMe(); if (S.catalog) render(); toast('Logged out'); });
     $('login-form').addEventListener('click', e => { const b = e.target.closest('[data-edition]'); if (b) { segSet($('login-form'), 'data-edition', b.dataset.edition); $('username').focus(); } });
     $('username').addEventListener('input', () => {
       const n = $('username').value.trim(), ed = segValue($('login-form'), 'data-edition');
@@ -435,7 +440,7 @@
       e.preventDefault();
       const edition = segValue($('login-form'), 'data-edition'), name = $('username').value.trim();
       if (!validName(edition, name)) { $('login-err').textContent = nameError(edition); return; }
-      S.me = { edition, name }; save('fs_player', S.me); await refreshTier(); renderMe();
+      S.me = { edition, name }; save('fs_player', S.me); await refreshTier(); renderMe(); if (S.catalog) render();
       $('login-dialog').close(); toast(`Logged in as ${name}`);
       const next = afterLogin; afterLogin = null; if (next) next();
     });
