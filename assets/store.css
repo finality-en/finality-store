@@ -203,6 +203,7 @@ input[type=text]:focus { outline: none; border-color: var(--ice); box-shadow: 0 
 .pd-info h2 { font-size: 26px; margin-bottom: 8px; padding-right: 40px; }
 .pd-price { margin-bottom: 12px; }
 .pd-req { margin: 0 0 12px; padding: 9px 12px; border-radius: var(--r-sm); background: rgba(255, 204, 77, .1); border: 1px solid rgba(255, 204, 77, .3); color: #ffe29a; font-size: 13.5px; }
+.pd-req.bad { background: rgba(248, 113, 113, .1); border-color: rgba(248, 113, 113, .35); color: #fecaca; }
 .desc p { margin: 0 0 10px; color: #cfdcef; }
 .desc ul { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
 .desc li { display: flex; gap: 10px; align-items: baseline; color: #dbe6f5; }

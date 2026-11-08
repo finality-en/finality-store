@@ -76,6 +76,24 @@
     }
     return out;
   }
+  // ---------- real in-game rank (from LuckPerms via the plugin, published anonymised in data/ranks.json) ----------
+  async function rankKey(name) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('fstore:' + String(name).toLowerCase()));
+    return [...new Uint8Array(buf)].slice(0, 8).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  const cmdNameOf = me => me.edition === 'bedrock' ? (S.catalog?.store?.floodgatePrefix ?? '.') + me.name.replace(/ /g, '_') : me.name;
+  async function refreshTier() {
+    S.myTier = undefined;
+    if (!S.me || !S.ranks?.players || !crypto?.subtle) return;
+    try { S.myTier = S.ranks.players[await rankKey(cmdNameOf(S.me))] || null; } catch { S.myTier = undefined; }
+  }
+  const tierName = id => S.ranks?.ladder?.find(r => r.id === id)?.name || id;
+  /** Why this player can't buy this upgrade, or null. */
+  function upgradeBlock(p) {
+    if (!p.upgradeTier || !S.ranks || !S.me || S.myTier === undefined) return null;
+    if (S.myTier === p.upgradeTier) return null;
+    return `This upgrade is only for players who have ${tierName(p.upgradeTier)}. ${S.me.name} ${S.myTier ? `has ${tierName(S.myTier)}` : 'has no rank'} right now.`;
+  }
   const segValue = (root, attr) => root.querySelector(`[${attr}][aria-checked="true"]`)?.getAttribute(attr) || 'java';
   function segSet(root, attr, value) { root.querySelectorAll(`[${attr}]`).forEach(b => b.setAttribute('aria-checked', String(b.getAttribute(attr) === value))); }
 
@@ -207,8 +225,10 @@
     $('pd-cat').textContent = catOf(p.categoryId)?.name || '';
     $('pd-name').textContent = p.name;
     $('pd-price').replaceChildren(priceLine(p, cur));
+    const blocked = upgradeBlock(p);
     $('pd-req').hidden = !p.upgradeFromName;
-    $('pd-req').textContent = p.upgradeFromName ? `Upgrade: you need to own ${p.upgradeFromName} first. You only pay the difference.` : '';
+    $('pd-req').classList.toggle('bad', !!blocked);
+    $('pd-req').textContent = blocked || (p.upgradeFromName ? `Upgrade: you need to have ${p.upgradeTier ? tierName(p.upgradeTier) : p.upgradeFromName} in game. You only pay the difference.` : '');
     $('pd-desc').replaceChildren(...richText(p.body || p.description));
     // included items / possible rewards
     const items = Array.isArray(p.contents) ? p.contents : [];
@@ -233,8 +253,8 @@
     $('pd-options').hidden = opts.length < 2;
     $('pd-gift').hidden = !p.giftable; $('pd-gift').open = false; $('gift-name').value = '';
     $('pd-err').textContent = '';
-    $('pd-buy').disabled = !!c.demo;
-    $('pd-buy').textContent = c.demo ? 'Opening soon' : c.store.checkoutApi ? 'Add to basket' : 'Continue to checkout';
+    $('pd-buy').disabled = !!c.demo || !!blocked;
+    $('pd-buy').textContent = c.demo ? 'Opening soon' : blocked ? `Needs ${tierName(p.upgradeTier)}` : c.store.checkoutApi ? 'Add to basket' : 'Continue to checkout';
     if (!$('pkg-dialog').open) $('pkg-dialog').showModal();
   }
   function giftTarget() {
@@ -272,6 +292,8 @@
     const p = S.current;
     $('pd-err').textContent = '';
     if (!S.me) { $('pkg-dialog').close(); return openLogin(() => { go(`#/p/${encodeURIComponent(p.id)}`); openPackage(p); }); }
+    const blocked = upgradeBlock(p);
+    if (blocked) { $('pd-err').textContent = blocked; return; }
     let gift;
     try { gift = giftTarget(); } catch (e) { $('pd-err').textContent = e.message; return; }
     const type = document.querySelector('input[name="ptype"]:checked')?.value || (p.price !== null ? 'once' : 'monthly');
@@ -403,17 +425,17 @@
     renderMe(); renderBasketCount(); snow();
 
     $('pb-login').addEventListener('click', () => openLogin());
-    $('pb-logout').addEventListener('click', () => { S.me = null; save('fs_player', null); renderMe(); toast('Logged out'); });
+    $('pb-logout').addEventListener('click', () => { S.me = null; S.myTier = undefined; save('fs_player', null); renderMe(); toast('Logged out'); });
     $('login-form').addEventListener('click', e => { const b = e.target.closest('[data-edition]'); if (b) { segSet($('login-form'), 'data-edition', b.dataset.edition); $('username').focus(); } });
     $('username').addEventListener('input', () => {
       const n = $('username').value.trim(), ed = segValue($('login-form'), 'data-edition');
       $('login-head').src = n && validName(ed, n) ? head(n, ed, 144) : 'assets/img/logo.webp';
     });
-    $('login-form').addEventListener('submit', e => {
+    $('login-form').addEventListener('submit', async e => {
       e.preventDefault();
       const edition = segValue($('login-form'), 'data-edition'), name = $('username').value.trim();
       if (!validName(edition, name)) { $('login-err').textContent = nameError(edition); return; }
-      S.me = { edition, name }; save('fs_player', S.me); renderMe();
+      S.me = { edition, name }; save('fs_player', S.me); await refreshTier(); renderMe();
       $('login-dialog').close(); toast(`Logged in as ${name}`);
       const next = afterLogin; afterLogin = null; if (next) next();
     });
@@ -434,8 +456,10 @@
       const [cat, live] = await Promise.all([
         fetch(`data/catalog.json?t=${Date.now()}`).then(r => r.json()),
         fetch(`data/live.json?t=${Date.now()}`).then(r => (r.ok ? r.json() : null)).catch(() => null),
-      ]);
+        fetch(`data/ranks.json?t=${Date.now()}`).then(r => (r.ok ? r.json() : null)).catch(() => null),
+      ]).then(([a, b, c]) => { S.ranks = c; return [a, b]; });
       S.catalog = cat; S.live = live;
+      await refreshTier();
       const st = cat.store;
       if (st.serverIp) { $('server-ip').textContent = st.serverIp; document.querySelector('.footer-brand span').textContent = st.serverIp; }
       if (/^https:\/\//.test(st.discordUrl || '')) ['nav-discord', 'discord-block', 'foot-discord'].forEach(id => { $(id).href = st.discordUrl; });
