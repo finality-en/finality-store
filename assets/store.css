@@ -210,7 +210,7 @@ input[type=text]:focus { outline: none; border-color: var(--ice); box-shadow: 0 
 .desc .d-head { margin: 16px 0 8px; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ice); }
 .desc .d-head:first-child { margin-top: 0; }
 .desc .d-tip { margin: 14px 0 10px; padding: 9px 12px; border-radius: var(--r-sm); background: rgba(92, 211, 255, .08); border: 1px solid rgba(92, 211, 255, .22); color: #dff3ff; font-size: 14px; }
-.desc .d-img { display: block; width: 100%; max-width: 460px; height: auto; border-radius: 6px; image-rendering: pixelated; margin: 4px 0 10px; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); }
+.desc .d-img { display: block; width: 100%; max-width: 460px; height: auto; border-radius: 6px; margin: 4px 0 10px; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); }
 .desc ul.perks { gap: 5px; }
 .desc li::before { content: ""; width: 6px; height: 6px; border-radius: 1px; background: var(--ice); flex: none; transform: translateY(-2px) rotate(45deg); }
 .pd-contents { padding: 20px 28px; border-top: 1px solid var(--line); }
