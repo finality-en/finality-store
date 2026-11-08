@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T18:02:28.479Z",
+  "generatedAt": "2026-11-08T18:22:11.139Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official store for Finality SMP!",
@@ -9,6 +9,159 @@
     "floodgatePrefix": ".",
     "checkoutApi": null
   },
-  "categories": [],
-  "packages": []
+  "categories": [
+    {
+      "id": "ranks",
+      "name": "Ranks",
+      "description": "Support the server and unlock perks."
+    },
+    {
+      "id": "rank-upgrades",
+      "name": "Rank Upgrades",
+      "description": "Already have a rank? Only pay the difference."
+    },
+    {
+      "id": "gift-cards",
+      "name": "Gift Cards",
+      "description": "Store credit for a friend."
+    }
+  ],
+  "packages": [
+    {
+      "id": "10-gift-card",
+      "name": "$10 Gift Card",
+      "categoryId": "gift-cards",
+      "description": "A single-use code worth $10 at checkout. The code is sent to the player in-game.",
+      "image": "assets/img/gift-card.webp",
+      "kind": "giftcard",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 1000,
+      "monthlyPrice": null,
+      "links": {
+        "once": "https://buy.stripe.com/4gM6oI96vfOQ4b84Ju9AA07",
+        "monthly": null
+      }
+    },
+    {
+      "id": "vip-mvp",
+      "name": "VIP → MVP",
+      "categoryId": "rank-upgrades",
+      "description": "Already VIP? Upgrade to MVP and only pay the difference.",
+      "image": "assets/img/rank-mvp.webp",
+      "kind": "standard",
+      "giftable": false,
+      "upgradeFrom": "vip-rank",
+      "upgradeFromName": "VIP Rank",
+      "price": 1000,
+      "monthlyPrice": null,
+      "links": {
+        "once": "https://buy.stripe.com/eVq9AU4QffOQePM4Ju9AA04",
+        "monthly": null
+      }
+    },
+    {
+      "id": "vip-rank",
+      "name": "VIP Rank",
+      "categoryId": "ranks",
+      "description": "The first supporter rank.\n- [VIP] tag and coloured chat\n- 5 homes, no home cooldown or warm-up\n- /hat, /anvil, /workbench, /enderchest, /sit, /dispose\n- 1 player vault (/pv 1)\n- VIP kit\n- Show items in chat",
+      "image": "assets/img/rank-vip.webp",
+      "kind": "standard",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 1500,
+      "monthlyPrice": null,
+      "links": {
+        "once": "https://buy.stripe.com/28E7sMciH3249vsb7S9AA01",
+        "monthly": null
+      }
+    },
+    {
+      "id": "25-gift-card",
+      "name": "$25 Gift Card",
+      "categoryId": "gift-cards",
+      "description": "A single-use code worth $25 at checkout. The code is sent to the player in-game.",
+      "image": "assets/img/gift-card.webp",
+      "kind": "giftcard",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 2500,
+      "monthlyPrice": null,
+      "links": {
+        "once": "https://buy.stripe.com/fZu3cw96v0TWfTQcbW9AA08",
+        "monthly": null
+      }
+    },
+    {
+      "id": "mvp-finality",
+      "name": "MVP → Finality",
+      "categoryId": "rank-upgrades",
+      "description": "Already MVP? Upgrade to Finality and only pay the difference.",
+      "image": "assets/img/rank-finality.webp",
+      "kind": "standard",
+      "giftable": false,
+      "upgradeFrom": "mvp-rank",
+      "upgradeFromName": "MVP Rank",
+      "price": 2500,
+      "monthlyPrice": null,
+      "links": {
+        "once": "https://buy.stripe.com/4gM3cweqP6eg9vsfo89AA05",
+        "monthly": null
+      }
+    },
+    {
+      "id": "mvp-rank",
+      "name": "MVP Rank",
+      "categoryId": "ranks",
+      "description": "Everything in VIP, plus:\n- [MVP] tag\n- 10 homes, 2 player vaults\n- /grindstone, /smithingtable, /clear\n- No RTP cooldown, no /tpa or /spawn warm-up\n- MVP kit\n- Show your inventory and ender chest in chat",
+      "image": "assets/img/rank-mvp.webp",
+      "kind": "standard",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 2500,
+      "monthlyPrice": null,
+      "links": {
+        "once": "https://buy.stripe.com/bJefZi0zZfOQ0YWgsc9AA02",
+        "monthly": null
+      }
+    },
+    {
+      "id": "finality-rank",
+      "name": "Finality Rank",
+      "categoryId": "ranks",
+      "description": "The top rank. Everything in MVP, plus:\n- [FINALITY] tag\n- 25 homes, 5 player vaults\n- /nick, /near, /repair hand\n- /glow in any colour, colour item names with /itemname\n- No /back cooldown or warm-up\n- Finality kit",
+      "image": "assets/img/rank-finality.webp",
+      "kind": "standard",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 5000,
+      "monthlyPrice": null,
+      "links": {
+        "once": "https://buy.stripe.com/bJebJ2aaz7ikgXU8ZK9AA03",
+        "monthly": null
+      }
+    },
+    {
+      "id": "vip-finality",
+      "name": "VIP → Finality",
+      "categoryId": "rank-upgrades",
+      "description": "Already VIP? Go straight to Finality and only pay the difference.",
+      "image": "assets/img/rank-finality.webp",
+      "kind": "standard",
+      "giftable": false,
+      "upgradeFrom": "vip-rank",
+      "upgradeFromName": "VIP Rank",
+      "price": 3500,
+      "monthlyPrice": null,
+      "links": {
+        "once": "https://buy.stripe.com/8x2aEY82rbyA7nkb7S9AA06",
+        "monthly": null
+      }
+    }
+  ]
 }
