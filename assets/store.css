@@ -162,6 +162,11 @@ h1, h2, h3 { margin: 0; line-height: 1.2; font-weight: 800; letter-spacing: -.01
 .badge.gold { background: var(--gold); color: #3a2800; }
 .pkg h3 { font-size: 17px; font-weight: 800; }
 .pkg .req { font-size: 12.5px; color: var(--gold); font-weight: 700; margin-top: 2px; }
+.pkg .req.bad { color: #fca5a5; }
+.pkg .req.ok { color: #86efac; }
+.pkg.locked { border-color: rgba(248, 113, 113, .55); box-shadow: 0 0 0 1px rgba(248, 113, 113, .25), 0 0 30px rgba(248, 113, 113, .22); }
+.pkg.locked .pkg-art img { filter: grayscale(.45) brightness(.85); }
+.pkg .btn:disabled { opacity: .55; cursor: not-allowed; }
 .pkg .perks { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 5px; font-size: 13.5px; color: #c4d3e8; }
 .pkg .perks li { display: flex; gap: 8px; align-items: baseline; }
 .pkg .perks li::before { content: ""; width: 5px; height: 5px; border-radius: 1px; background: var(--ice); flex: none; transform: translateY(-2px) rotate(45deg); }
