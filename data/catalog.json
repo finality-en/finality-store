@@ -1,29 +1,60 @@
 {
-  "generatedAt": "2026-11-08T18:22:11.139Z",
+  "generatedAt": "2026-11-08T21:54:58.610Z",
   "store": {
     "name": "Finality SMP",
-    "tagline": "Welcome to the official store for Finality SMP!",
-    "serverIp": "play.finalitymc.org",
-    "discordUrl": "",
+    "tagline": "Welcome to the official Finality SMP store.",
+    "about": "Every purchase helps keep Finality SMP running. Ranks are a one-time payment and stay with you permanently, unless you choose the monthly option.\n\nPurchases are delivered automatically, usually within a minute. If you are offline, they arrive the next time you join.",
+    "notice": "",
+    "serverIp": "finalitymc.org",
+    "discordUrl": "https://discord.gg/tmEXFTuJkz",
+    "homeUrl": "https://finality-en.github.io/",
     "currency": "usd",
     "floodgatePrefix": ".",
+    "testMode": false,
     "checkoutApi": null
   },
   "categories": [
     {
       "id": "ranks",
       "name": "Ranks",
-      "description": "Support the server and unlock perks."
+      "description": "Support the server and unlock perks.",
+      "image": "assets/img/rank-finality.webp",
+      "guiIcon": "DIAMOND"
     },
     {
       "id": "rank-upgrades",
       "name": "Rank Upgrades",
-      "description": "Already have a rank? Only pay the difference."
+      "description": "Already have a rank? Only pay the difference.",
+      "image": "assets/img/rank-mvp.webp",
+      "guiIcon": "EXPERIENCE_BOTTLE"
+    },
+    {
+      "id": "cosmetics",
+      "name": "Cosmetics",
+      "description": "Kill effects and kill sounds for /ke. Cosmetic only, no gameplay advantage.",
+      "image": "assets/img/ke-collection.webp",
+      "guiIcon": "FIREWORK_STAR"
+    },
+    {
+      "id": "crate-keys",
+      "name": "Crate Keys",
+      "description": "",
+      "image": "assets/img/key-bundle.webp",
+      "guiIcon": "TRIPWIRE_HOOK"
+    },
+    {
+      "id": "lootboxes",
+      "name": "Lootboxes",
+      "description": "Right-click to open. Every box shows exactly what it can contain.",
+      "image": "assets/img/starter-kit.webp",
+      "guiIcon": "CHEST"
     },
     {
       "id": "gift-cards",
       "name": "Gift Cards",
-      "description": "Store credit for a friend."
+      "description": "Store credit for a friend.",
+      "image": "assets/img/gift-card-10.webp",
+      "guiIcon": "CAKE"
     }
   ],
   "packages": [
@@ -32,15 +63,244 @@
       "name": "$10 Gift Card",
       "categoryId": "gift-cards",
       "description": "A single-use code worth $10 at checkout. The code is sent to the player in-game.",
-      "image": "assets/img/gift-card.webp",
+      "image": "assets/img/gift-card-10.webp",
       "kind": "giftcard",
+      "badge": "",
       "giftable": true,
       "upgradeFrom": null,
       "upgradeFromName": null,
       "price": 1000,
+      "compareAtPrice": null,
       "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "PAPER",
       "links": {
         "once": "https://buy.stripe.com/4gM6oI96vfOQ4b84Ju9AA07",
+        "monthly": null
+      }
+    },
+    {
+      "id": "finality-key",
+      "name": "Finality Key",
+      "categoryId": "crate-keys",
+      "description": "One key for the store-exclusive Finality Crate at spawn.\n- Exclusive loot, premium rewards and rare prizes\n- Delivered to your inventory next time you are online",
+      "image": "assets/img/key-finality.webp",
+      "kind": "standard",
+      "badge": "",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 300,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "Possible rewards",
+      "contents": [
+        {
+          "name": "Glacier Pickaxe",
+          "image": "assets/img/item-frost-pickaxe.webp",
+          "note": "Tier I"
+        },
+        {
+          "name": "Glacial Shard",
+          "image": "assets/img/item-ice-block.webp",
+          "note": ""
+        },
+        {
+          "name": "Astral Crystal",
+          "image": "assets/img/item-ender-pearl.webp",
+          "note": ""
+        },
+        {
+          "name": "Nether Star",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Relic Key",
+          "image": "assets/img/key-relic.webp",
+          "note": ""
+        },
+        {
+          "name": "Kill Effect Lootbox",
+          "image": "assets/img/lootbox-ke.webp",
+          "note": ""
+        },
+        {
+          "name": "Glacier Armour Lootbox",
+          "image": "assets/img/glacier-lootbox.webp",
+          "note": ""
+        },
+        {
+          "name": "Enchanted books, golden apples, breeze rods and more",
+          "image": "",
+          "note": ""
+        }
+      ],
+      "guiIcon": "TRIPWIRE_HOOK",
+      "links": {
+        "once": "https://buy.stripe.com/aFa00k0zZ1Y0bDA4Ju9AA09",
+        "monthly": null
+      }
+    },
+    {
+      "id": "ke-lootbox",
+      "name": "Kill Effect Lootbox",
+      "categoryId": "cosmetics",
+      "description": "Unlocks a random kill effect or kill sound for /ke.\n- Cosmetic only",
+      "image": "assets/img/lootbox-ke.webp",
+      "kind": "standard",
+      "badge": "",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 250,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "Can unlock",
+      "contents": [
+        {
+          "name": "Angelic kill effect",
+          "image": "assets/ke/angelic.webp",
+          "note": "White feathers drift up into the sky."
+        },
+        {
+          "name": "Ice Shatter kill effect",
+          "image": "assets/ke/ice_shatter.webp",
+          "note": "A burst of ice shards."
+        },
+        {
+          "name": "Candy Pop kill effect",
+          "image": "assets/ke/candy_pop.webp",
+          "note": "An explosion of colourful confetti."
+        },
+        {
+          "name": "Bloodshed kill effect",
+          "image": "assets/ke/bloodshed.webp",
+          "note": "A spray of blood where they fall."
+        },
+        {
+          "name": "Inferno kill effect",
+          "image": "assets/ke/inferno.webp",
+          "note": "A burst of flames and smoke."
+        },
+        {
+          "name": "Thunderstrike kill effect",
+          "image": "assets/ke/thunderstrike.webp",
+          "note": "A lightning strike and a cloud of smoke."
+        },
+        {
+          "name": "Ender Rift kill effect",
+          "image": "assets/ke/ender_rift.webp",
+          "note": "A swirling ring of ender particles."
+        },
+        {
+          "name": "Lovestruck kill effect",
+          "image": "assets/ke/lovestruck.webp",
+          "note": "A shower of hearts."
+        },
+        {
+          "name": "Spirit Flame kill effect",
+          "image": "assets/ke/spirit_flame.webp",
+          "note": "Blue soul flames rise from the ground."
+        },
+        {
+          "name": "Divine Kill kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "Church bells and rising chimes."
+        },
+        {
+          "name": "Howl kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A long, mournful wolf howl."
+        },
+        {
+          "name": "Soul Snatch kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A ghostly scream as the soul escapes."
+        },
+        {
+          "name": "Thunder Clap kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A lightning crack and rolling thunder."
+        },
+        {
+          "name": "Fanfare kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A level-up fanfare with fireworks."
+        },
+        {
+          "name": "Kaboom kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "An explosion and firework blasts."
+        },
+        {
+          "name": "Dragon Roar kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "The Ender Dragon's roar."
+        },
+        {
+          "name": "Totem Pop kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "The Totem of Undying pop."
+        },
+        {
+          "name": "Bonk kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A cartoon anvil bonk."
+        }
+      ],
+      "guiIcon": "ENDER_CHEST",
+      "links": {
+        "once": "https://buy.stripe.com/5kQ8wQ6Yn6egdLI4Ju9AA0f",
+        "monthly": null
+      }
+    },
+    {
+      "id": "starter-kit",
+      "name": "Season Starter Kit",
+      "categoryId": "lootboxes",
+      "description": "A head start for the new season. Open it to get 5 random starter rewards for you and your team.\n- Coins and crate keys\n- Team storage\n- Gear and food",
+      "image": "assets/img/starter-kit.webp",
+      "kind": "standard",
+      "badge": "New season",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 750,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "Can contain",
+      "contents": [
+        {
+          "name": "Coins",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Crate keys",
+          "image": "assets/img/key-finality.webp",
+          "note": ""
+        },
+        {
+          "name": "Team storage",
+          "image": "assets/img/item-chest.webp",
+          "note": ""
+        },
+        {
+          "name": "Gear",
+          "image": "assets/img/item-frost-sword.webp",
+          "note": ""
+        },
+        {
+          "name": "Food",
+          "image": "assets/img/item-golden-apple.webp",
+          "note": ""
+        }
+      ],
+      "guiIcon": "CHEST",
+      "links": {
+        "once": "https://buy.stripe.com/9B69AU82rauwgXU1xi9AA0e",
         "monthly": null
       }
     },
@@ -51,11 +311,16 @@
       "description": "Already VIP? Upgrade to MVP and only pay the difference.",
       "image": "assets/img/rank-mvp.webp",
       "kind": "standard",
+      "badge": "",
       "giftable": false,
       "upgradeFrom": "vip-rank",
       "upgradeFromName": "VIP Rank",
       "price": 1000,
+      "compareAtPrice": null,
       "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "DIAMOND",
       "links": {
         "once": "https://buy.stripe.com/eVq9AU4QffOQePM4Ju9AA04",
         "monthly": null
@@ -68,11 +333,16 @@
       "description": "The first supporter rank.\n- [VIP] tag and coloured chat\n- 5 homes, no home cooldown or warm-up\n- /hat, /anvil, /workbench, /enderchest, /sit, /dispose\n- 1 player vault (/pv 1)\n- VIP kit\n- Show items in chat",
       "image": "assets/img/rank-vip.webp",
       "kind": "standard",
+      "badge": "",
       "giftable": true,
       "upgradeFrom": null,
       "upgradeFromName": null,
       "price": 1500,
+      "compareAtPrice": null,
       "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "GOLD_INGOT",
       "links": {
         "once": "https://buy.stripe.com/28E7sMciH3249vsb7S9AA01",
         "monthly": null
@@ -83,15 +353,196 @@
       "name": "$25 Gift Card",
       "categoryId": "gift-cards",
       "description": "A single-use code worth $25 at checkout. The code is sent to the player in-game.",
-      "image": "assets/img/gift-card.webp",
+      "image": "assets/img/gift-card-25.webp",
       "kind": "giftcard",
+      "badge": "",
       "giftable": true,
       "upgradeFrom": null,
       "upgradeFromName": null,
       "price": 2500,
+      "compareAtPrice": null,
       "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "PAPER",
       "links": {
         "once": "https://buy.stripe.com/fZu3cw96v0TWfTQcbW9AA08",
+        "monthly": null
+      }
+    },
+    {
+      "id": "finality-key-5",
+      "name": "5× Finality Key",
+      "categoryId": "crate-keys",
+      "description": "Five keys for the Finality Crate.\n- Exclusive loot, premium rewards and rare prizes\n- Delivered to your inventory next time you are online",
+      "image": "assets/img/key-finality-5.webp",
+      "kind": "standard",
+      "badge": "Save 20%",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 1200,
+      "compareAtPrice": 1500,
+      "monthlyPrice": null,
+      "contentsTitle": "Possible rewards",
+      "contents": [
+        {
+          "name": "Glacier Pickaxe",
+          "image": "assets/img/item-frost-pickaxe.webp",
+          "note": "Tier I"
+        },
+        {
+          "name": "Glacial Shard",
+          "image": "assets/img/item-ice-block.webp",
+          "note": ""
+        },
+        {
+          "name": "Astral Crystal",
+          "image": "assets/img/item-ender-pearl.webp",
+          "note": ""
+        },
+        {
+          "name": "Nether Star",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Relic Key",
+          "image": "assets/img/key-relic.webp",
+          "note": ""
+        },
+        {
+          "name": "Kill Effect Lootbox",
+          "image": "assets/img/lootbox-ke.webp",
+          "note": ""
+        },
+        {
+          "name": "Glacier Armour Lootbox",
+          "image": "assets/img/glacier-lootbox.webp",
+          "note": ""
+        },
+        {
+          "name": "Enchanted books, golden apples, breeze rods and more",
+          "image": "",
+          "note": ""
+        }
+      ],
+      "guiIcon": "TRIPWIRE_HOOK",
+      "links": {
+        "once": "https://buy.stripe.com/28EbJ282r6egfTQfo89AA0a",
+        "monthly": null
+      }
+    },
+    {
+      "id": "ke-lootbox-5",
+      "name": "5× Kill Effect Lootbox",
+      "categoryId": "cosmetics",
+      "description": "Five Kill Effect Lootboxes. Each unlocks a random kill effect or kill sound for /ke.\n- Cosmetic only",
+      "image": "assets/img/lootbox-ke-5.webp",
+      "kind": "standard",
+      "badge": "Save 20%",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 1000,
+      "compareAtPrice": 1250,
+      "monthlyPrice": null,
+      "contentsTitle": "Can unlock",
+      "contents": [
+        {
+          "name": "Angelic kill effect",
+          "image": "assets/ke/angelic.webp",
+          "note": "White feathers drift up into the sky."
+        },
+        {
+          "name": "Ice Shatter kill effect",
+          "image": "assets/ke/ice_shatter.webp",
+          "note": "A burst of ice shards."
+        },
+        {
+          "name": "Candy Pop kill effect",
+          "image": "assets/ke/candy_pop.webp",
+          "note": "An explosion of colourful confetti."
+        },
+        {
+          "name": "Bloodshed kill effect",
+          "image": "assets/ke/bloodshed.webp",
+          "note": "A spray of blood where they fall."
+        },
+        {
+          "name": "Inferno kill effect",
+          "image": "assets/ke/inferno.webp",
+          "note": "A burst of flames and smoke."
+        },
+        {
+          "name": "Thunderstrike kill effect",
+          "image": "assets/ke/thunderstrike.webp",
+          "note": "A lightning strike and a cloud of smoke."
+        },
+        {
+          "name": "Ender Rift kill effect",
+          "image": "assets/ke/ender_rift.webp",
+          "note": "A swirling ring of ender particles."
+        },
+        {
+          "name": "Lovestruck kill effect",
+          "image": "assets/ke/lovestruck.webp",
+          "note": "A shower of hearts."
+        },
+        {
+          "name": "Spirit Flame kill effect",
+          "image": "assets/ke/spirit_flame.webp",
+          "note": "Blue soul flames rise from the ground."
+        },
+        {
+          "name": "Divine Kill kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "Church bells and rising chimes."
+        },
+        {
+          "name": "Howl kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A long, mournful wolf howl."
+        },
+        {
+          "name": "Soul Snatch kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A ghostly scream as the soul escapes."
+        },
+        {
+          "name": "Thunder Clap kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A lightning crack and rolling thunder."
+        },
+        {
+          "name": "Fanfare kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A level-up fanfare with fireworks."
+        },
+        {
+          "name": "Kaboom kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "An explosion and firework blasts."
+        },
+        {
+          "name": "Dragon Roar kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "The Ender Dragon's roar."
+        },
+        {
+          "name": "Totem Pop kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "The Totem of Undying pop."
+        },
+        {
+          "name": "Bonk kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A cartoon anvil bonk."
+        }
+      ],
+      "guiIcon": "ENDER_CHEST",
+      "links": {
+        "once": "https://buy.stripe.com/5kQ3cwgyXfOQ2306RC9AA0g",
         "monthly": null
       }
     },
@@ -102,11 +553,16 @@
       "description": "Already MVP? Upgrade to Finality and only pay the difference.",
       "image": "assets/img/rank-finality.webp",
       "kind": "standard",
+      "badge": "",
       "giftable": false,
       "upgradeFrom": "mvp-rank",
       "upgradeFromName": "MVP Rank",
       "price": 2500,
+      "compareAtPrice": null,
       "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "ENCHANTED_GOLDEN_APPLE",
       "links": {
         "once": "https://buy.stripe.com/4gM3cweqP6eg9vsfo89AA05",
         "monthly": null
@@ -119,11 +575,16 @@
       "description": "Everything in VIP, plus:\n- [MVP] tag\n- 10 homes, 2 player vaults\n- /grindstone, /smithingtable, /clear\n- No RTP cooldown, no /tpa or /spawn warm-up\n- MVP kit\n- Show your inventory and ender chest in chat",
       "image": "assets/img/rank-mvp.webp",
       "kind": "standard",
+      "badge": "Popular",
       "giftable": true,
       "upgradeFrom": null,
       "upgradeFromName": null,
       "price": 2500,
+      "compareAtPrice": null,
       "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "DIAMOND",
       "links": {
         "once": "https://buy.stripe.com/bJefZi0zZfOQ0YWgsc9AA02",
         "monthly": null
@@ -136,13 +597,119 @@
       "description": "The top rank. Everything in MVP, plus:\n- [FINALITY] tag\n- 25 homes, 5 player vaults\n- /nick, /near, /repair hand\n- /glow in any colour, colour item names with /itemname\n- No /back cooldown or warm-up\n- Finality kit",
       "image": "assets/img/rank-finality.webp",
       "kind": "standard",
+      "badge": "",
       "giftable": true,
       "upgradeFrom": null,
       "upgradeFromName": null,
       "price": 5000,
+      "compareAtPrice": null,
       "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "ENCHANTED_GOLDEN_APPLE",
       "links": {
         "once": "https://buy.stripe.com/bJebJ2aaz7ikgXU8ZK9AA03",
+        "monthly": null
+      }
+    },
+    {
+      "id": "bundle-frostbite",
+      "name": "Frostbite Bundle",
+      "categoryId": "cosmetics",
+      "description": "Two kill effects and two kill sounds, unlocked straight away in /ke.\n- Ice Shatter and Spirit Flame kill effects\n- Howl and Thunder Clap kill sounds\n- Cosmetic only",
+      "image": "assets/img/bundle-frostbite.webp",
+      "kind": "standard",
+      "badge": "",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 600,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "Included",
+      "contents": [
+        {
+          "name": "Ice Shatter kill effect",
+          "image": "assets/ke/ice_shatter.webp",
+          "note": "A burst of ice shards."
+        },
+        {
+          "name": "Spirit Flame kill effect",
+          "image": "assets/ke/spirit_flame.webp",
+          "note": "Blue soul flames rise from the ground."
+        },
+        {
+          "name": "Howl kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A long, mournful wolf howl."
+        },
+        {
+          "name": "Thunder Clap kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A lightning crack and rolling thunder."
+        }
+      ],
+      "guiIcon": "BLUE_ICE",
+      "links": {
+        "once": "https://buy.stripe.com/00w6oI2I71Y03741xi9AA0h",
+        "monthly": null
+      }
+    },
+    {
+      "id": "relic-key",
+      "name": "Relic Key",
+      "categoryId": "crate-keys",
+      "description": "A mythic key for the Relic Vault. Rewards never repeat in the same opening.\n- Demonic, Astral and Glacier gear\n- Class rolls and tokens",
+      "image": "assets/img/key-relic.webp",
+      "kind": "standard",
+      "badge": "",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 500,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "Possible rewards",
+      "contents": [
+        {
+          "name": "Demonic gear",
+          "image": "",
+          "note": "Rare"
+        },
+        {
+          "name": "Astral gear",
+          "image": "assets/img/item-ender-pearl.webp",
+          "note": ""
+        },
+        {
+          "name": "Glacier gear",
+          "image": "assets/img/item-frost-chestplate.webp",
+          "note": ""
+        },
+        {
+          "name": "Special Class Roll",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Class Upgrade Token",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Extra Class Token",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Class Reset Token",
+          "image": "",
+          "note": ""
+        }
+      ],
+      "guiIcon": "NETHER_STAR",
+      "links": {
+        "once": "https://buy.stripe.com/28EcN64Qf5ac4b8b7S9AA0b",
         "monthly": null
       }
     },
@@ -153,13 +720,356 @@
       "description": "Already VIP? Go straight to Finality and only pay the difference.",
       "image": "assets/img/rank-finality.webp",
       "kind": "standard",
+      "badge": "",
       "giftable": false,
       "upgradeFrom": "vip-rank",
       "upgradeFromName": "VIP Rank",
       "price": 3500,
+      "compareAtPrice": null,
       "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "ENCHANTED_GOLDEN_APPLE",
       "links": {
         "once": "https://buy.stripe.com/8x2aEY82rbyA7nkb7S9AA06",
+        "monthly": null
+      }
+    },
+    {
+      "id": "relic-key-3",
+      "name": "3× Relic Key",
+      "categoryId": "crate-keys",
+      "description": "Three mythic keys for the Relic Vault.\n- Demonic, Astral and Glacier gear\n- Class rolls and tokens",
+      "image": "assets/img/key-relic-3.webp",
+      "kind": "standard",
+      "badge": "Save 20%",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 1200,
+      "compareAtPrice": 1500,
+      "monthlyPrice": null,
+      "contentsTitle": "Possible rewards",
+      "contents": [
+        {
+          "name": "Demonic gear",
+          "image": "",
+          "note": "Rare"
+        },
+        {
+          "name": "Astral gear",
+          "image": "assets/img/item-ender-pearl.webp",
+          "note": ""
+        },
+        {
+          "name": "Glacier gear",
+          "image": "assets/img/item-frost-chestplate.webp",
+          "note": ""
+        },
+        {
+          "name": "Special Class Roll",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Class Upgrade Token",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Extra Class Token",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Class Reset Token",
+          "image": "",
+          "note": ""
+        }
+      ],
+      "guiIcon": "NETHER_STAR",
+      "links": {
+        "once": "https://buy.stripe.com/fZufZi2I7eKM5fca3O9AA0c",
+        "monthly": null
+      }
+    },
+    {
+      "id": "bundle-inferno",
+      "name": "Inferno Bundle",
+      "categoryId": "cosmetics",
+      "description": "Two kill effects and two kill sounds, unlocked straight away in /ke.\n- Inferno and Bloodshed kill effects\n- Dragon Roar and Kaboom kill sounds\n- Cosmetic only",
+      "image": "assets/img/bundle-inferno.webp",
+      "kind": "standard",
+      "badge": "",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 600,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "Included",
+      "contents": [
+        {
+          "name": "Inferno kill effect",
+          "image": "assets/ke/inferno.webp",
+          "note": "A burst of flames and smoke."
+        },
+        {
+          "name": "Bloodshed kill effect",
+          "image": "assets/ke/bloodshed.webp",
+          "note": "A spray of blood where they fall."
+        },
+        {
+          "name": "Dragon Roar kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "The Ender Dragon's roar."
+        },
+        {
+          "name": "Kaboom kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "An explosion and firework blasts."
+        }
+      ],
+      "guiIcon": "BLAZE_POWDER",
+      "links": {
+        "once": "https://buy.stripe.com/14AcN682r6eg230cbW9AA0i",
+        "monthly": null
+      }
+    },
+    {
+      "id": "bundle-celestial",
+      "name": "Celestial Bundle",
+      "categoryId": "cosmetics",
+      "description": "Two kill effects and two kill sounds, unlocked straight away in /ke.\n- Angelic and Ender Rift kill effects\n- Divine Kill and Soul Snatch kill sounds\n- Cosmetic only",
+      "image": "assets/img/bundle-celestial.webp",
+      "kind": "standard",
+      "badge": "",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 600,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "Included",
+      "contents": [
+        {
+          "name": "Angelic kill effect",
+          "image": "assets/ke/angelic.webp",
+          "note": "White feathers drift up into the sky."
+        },
+        {
+          "name": "Ender Rift kill effect",
+          "image": "assets/ke/ender_rift.webp",
+          "note": "A swirling ring of ender particles."
+        },
+        {
+          "name": "Divine Kill kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "Church bells and rising chimes."
+        },
+        {
+          "name": "Soul Snatch kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A ghostly scream as the soul escapes."
+        }
+      ],
+      "guiIcon": "ENDER_EYE",
+      "links": {
+        "once": "https://buy.stripe.com/8x214ogyXgSUgXUgsc9AA0j",
+        "monthly": null
+      }
+    },
+    {
+      "id": "key-bundle",
+      "name": "Key Bundle",
+      "categoryId": "crate-keys",
+      "description": "A bit of everything.\n- 3× Finality Key\n- 2× Relic Key\n- 1× Kill Effect Lootbox",
+      "image": "assets/img/key-bundle.webp",
+      "kind": "standard",
+      "badge": "Best value",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 1800,
+      "compareAtPrice": 2350,
+      "monthlyPrice": null,
+      "contentsTitle": "Included",
+      "contents": [
+        {
+          "name": "3× Finality Key",
+          "image": "assets/img/key-finality.webp",
+          "note": ""
+        },
+        {
+          "name": "2× Relic Key",
+          "image": "assets/img/key-relic.webp",
+          "note": ""
+        },
+        {
+          "name": "1× Kill Effect Lootbox",
+          "image": "assets/img/lootbox-ke.webp",
+          "note": ""
+        }
+      ],
+      "guiIcon": "CHEST_MINECART",
+      "links": {
+        "once": "https://buy.stripe.com/dRmcN64QfgSUePM2Bm9AA0d",
+        "monthly": null
+      }
+    },
+    {
+      "id": "bundle-party",
+      "name": "Party Bundle",
+      "categoryId": "cosmetics",
+      "description": "Two kill effects and two kill sounds, unlocked straight away in /ke.\n- Candy Pop and Lovestruck kill effects\n- Fanfare and Totem Pop kill sounds\n- Cosmetic only",
+      "image": "assets/img/bundle-party.webp",
+      "kind": "standard",
+      "badge": "",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 600,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "Included",
+      "contents": [
+        {
+          "name": "Candy Pop kill effect",
+          "image": "assets/ke/candy_pop.webp",
+          "note": "An explosion of colourful confetti."
+        },
+        {
+          "name": "Lovestruck kill effect",
+          "image": "assets/ke/lovestruck.webp",
+          "note": "A shower of hearts."
+        },
+        {
+          "name": "Fanfare kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A level-up fanfare with fireworks."
+        },
+        {
+          "name": "Totem Pop kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "The Totem of Undying pop."
+        }
+      ],
+      "guiIcon": "CAKE",
+      "links": {
+        "once": "https://buy.stripe.com/fZuaEYbeDfOQ4b8gsc9AA0k",
+        "monthly": null
+      }
+    },
+    {
+      "id": "ke-collection",
+      "name": "Complete Kill Effect Collection",
+      "categoryId": "cosmetics",
+      "description": "Every kill effect and every kill sound, unlocked straight away in /ke.\n- All 9 kill effects\n- All 9 kill sounds\n- Cosmetic only",
+      "image": "assets/img/ke-collection.webp",
+      "kind": "standard",
+      "badge": "Everything",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "price": 2500,
+      "compareAtPrice": 3600,
+      "monthlyPrice": null,
+      "contentsTitle": "Included",
+      "contents": [
+        {
+          "name": "Angelic kill effect",
+          "image": "assets/ke/angelic.webp",
+          "note": "White feathers drift up into the sky."
+        },
+        {
+          "name": "Ice Shatter kill effect",
+          "image": "assets/ke/ice_shatter.webp",
+          "note": "A burst of ice shards."
+        },
+        {
+          "name": "Candy Pop kill effect",
+          "image": "assets/ke/candy_pop.webp",
+          "note": "An explosion of colourful confetti."
+        },
+        {
+          "name": "Bloodshed kill effect",
+          "image": "assets/ke/bloodshed.webp",
+          "note": "A spray of blood where they fall."
+        },
+        {
+          "name": "Inferno kill effect",
+          "image": "assets/ke/inferno.webp",
+          "note": "A burst of flames and smoke."
+        },
+        {
+          "name": "Thunderstrike kill effect",
+          "image": "assets/ke/thunderstrike.webp",
+          "note": "A lightning strike and a cloud of smoke."
+        },
+        {
+          "name": "Ender Rift kill effect",
+          "image": "assets/ke/ender_rift.webp",
+          "note": "A swirling ring of ender particles."
+        },
+        {
+          "name": "Lovestruck kill effect",
+          "image": "assets/ke/lovestruck.webp",
+          "note": "A shower of hearts."
+        },
+        {
+          "name": "Spirit Flame kill effect",
+          "image": "assets/ke/spirit_flame.webp",
+          "note": "Blue soul flames rise from the ground."
+        },
+        {
+          "name": "Divine Kill kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "Church bells and rising chimes."
+        },
+        {
+          "name": "Howl kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A long, mournful wolf howl."
+        },
+        {
+          "name": "Soul Snatch kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A ghostly scream as the soul escapes."
+        },
+        {
+          "name": "Thunder Clap kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A lightning crack and rolling thunder."
+        },
+        {
+          "name": "Fanfare kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A level-up fanfare with fireworks."
+        },
+        {
+          "name": "Kaboom kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "An explosion and firework blasts."
+        },
+        {
+          "name": "Dragon Roar kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "The Ender Dragon's roar."
+        },
+        {
+          "name": "Totem Pop kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "The Totem of Undying pop."
+        },
+        {
+          "name": "Bonk kill sound",
+          "image": "assets/img/sound.webp",
+          "note": "A cartoon anvil bonk."
+        }
+      ],
+      "guiIcon": "NETHER_STAR",
+      "links": {
+        "once": "https://buy.stripe.com/5kQ5kEdmL1Y03741xi9AA0l",
         "monthly": null
       }
     }

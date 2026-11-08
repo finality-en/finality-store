@@ -1,7 +1,51 @@
 {
-  "generatedAt": "2026-11-08T18:22:11.139Z",
-  "recentPayments": [],
-  "topCustomer": null,
+  "generatedAt": "2026-11-08T21:54:58.611Z",
+  "recentPayments": [
+    {
+      "player": "parsleyjosh",
+      "edition": "java",
+      "items": [
+        "VIP Rank"
+      ],
+      "at": 1794164310865
+    },
+    {
+      "player": "parsleyjosh",
+      "edition": "java",
+      "items": [
+        "Finality Rank"
+      ],
+      "at": 1794163808463
+    },
+    {
+      "player": "parsleyjosh",
+      "edition": "java",
+      "items": [
+        "VIP → Finality"
+      ],
+      "at": 1794163412339
+    },
+    {
+      "player": "parsleyjosh",
+      "edition": "java",
+      "items": [
+        "VIP → MVP"
+      ],
+      "at": 1794162940247
+    },
+    {
+      "player": "parsleyjosh",
+      "edition": "java",
+      "items": [
+        "VIP Rank"
+      ],
+      "at": 1794162528776
+    }
+  ],
+  "topCustomer": {
+    "player": "parsleyjosh",
+    "edition": "java"
+  },
   "goal": {
     "title": "Monthly server costs",
     "percent": 0
