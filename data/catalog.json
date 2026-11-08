@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-11-08T18:02:28.479Z",
+  "store": {
+    "name": "Finality SMP",
+    "tagline": "Welcome to the official store for Finality SMP!",
+    "serverIp": "play.finalitymc.org",
+    "discordUrl": "",
+    "currency": "usd",
+    "floodgatePrefix": ".",
+    "checkoutApi": null
+  },
+  "categories": [],
+  "packages": []
+}

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://api.mcsrvstat.us https://store.finalitymc.org; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Finality SMP Store</title>
+<meta name="description" content="The official store for Finality SMP. Ranks, cosmetics, crate keys and more, delivered in-game.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<meta property="og:title" content="Finality SMP Store">
+<meta property="og:image" content="assets/img/og.jpg">
+<link rel="preload" as="image" href="assets/img/banner.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Pixelify+Sans:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/store.css">
+<script src="assets/store.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="./"><img src="assets/img/logo.webp" alt=""><span data-store-name>Finality SMP</span></a>
+    <span class="spacer"></span>
+    <button class="ip" type="button" id="copy-ip" aria-label="Copy server IP">
+      <span class="dot off" id="status-dot"></span><b id="server-ip">play.finalitymc.org</b><span class="count" id="player-count"></span>
+    </button>
+    <a class="navlink" id="discord-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Discord</a>
+    <a class="navlink" href="faq.html">Help</a>
+    <button class="navlink basket-btn btn secondary" type="button" id="open-basket" hidden>Basket <span class="n" id="basket-count">0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="sr" data-store-name>Finality SMP</h1>
+      <picture><img class="banner-art" src="assets/img/banner.jpg" alt="Finality SMP" width="1280" height="480"></picture>
+      <p class="lede" id="tagline">Welcome to the official store for Finality SMP!</p>
+      <div class="goal" id="goal" hidden>
+        <div class="label"><strong id="goal-title"></strong><span id="goal-pct"></span></div>
+        <div class="hearts" id="goal-hearts" role="img"></div>
+      </div>
+    </div>
+
+    <div class="who" id="who">
+      <div id="who-form">
+        <h2>Who are you buying for?</h2>
+        <p>Enter your Minecraft username. Purchases are delivered to this player.</p>
+        <form id="login-form" novalidate>
+          <div class="edition" role="group" aria-label="Edition">
+            <button type="button" data-edition="java" aria-pressed="true">Java</button>
+            <button type="button" data-edition="bedrock" aria-pressed="false">Bedrock</button>
+          </div>
+          <label class="sr" for="username">Minecraft username</label>
+          <input type="text" id="username" autocomplete="off" spellcheck="false" maxlength="16" placeholder="Username">
+          <button class="btn" type="submit">Continue</button>
+        </form>
+        <div class="err" id="login-err" role="alert"></div>
+      </div>
+      <div class="signed" id="who-signed" hidden>
+        <img id="me-head" alt="">
+        <div><div class="name" id="me-name"></div><div class="ed" id="me-ed"></div></div>
+        <button class="btn secondary" type="button" id="logout">Change</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap main">
+  <main>
+    <div class="banner" id="demo-banner" hidden>The store is being set up. Purchases open soon.</div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="cat-head"><h2 id="cat-title">Loading the store…</h2><p id="cat-desc"></p></div>
+    <div class="grid" id="packages"></div>
+  </main>
+
+  <aside class="side">
+    <section class="panel" id="top-panel" hidden>
+      <h2>Top supporter this month</h2>
+      <div class="top-customer"><img id="top-head" alt=""><div><div class="crown">Top customer</div><div class="name" id="top-name"></div></div></div>
+    </section>
+    <section class="panel" id="recent-panel" hidden>
+      <h2>Recent purchases</h2>
+      <ul class="payments" id="recent"></ul>
+    </section>
+    <section class="panel safe">
+      <strong>Secure checkout by Stripe</strong>
+      You pay on Stripe's own checkout page. Your card details never reach our servers. Cards, Apple Pay, Google Pay, PayPal and bank payments are supported.
+    </section>
+  </aside>
+</div>
+
+<dialog id="pkg-dialog" aria-labelledby="dlg-title">
+  <div class="dlg">
+    <header><img id="dlg-img" alt=""><div><h2 id="dlg-title"></h2><div class="tag" id="dlg-tag"></div></div><button class="close" type="button" data-close aria-label="Close">×</button></header>
+    <div class="desc" id="dlg-desc"></div>
+    <div class="choice" id="dlg-choice"></div>
+    <details class="gift" id="dlg-gift">
+      <summary>Buy this as a gift</summary>
+      <div class="row">
+        <div class="edition" role="group" aria-label="Recipient edition">
+          <button type="button" data-gift-edition="java" aria-pressed="true">Java</button>
+          <button type="button" data-gift-edition="bedrock" aria-pressed="false">Bedrock</button>
+        </div>
+        <input type="text" id="gift-name" maxlength="16" placeholder="Friend's username" autocomplete="off" spellcheck="false">
+      </div>
+    </details>
+    <div class="err" id="dlg-err" role="alert"></div>
+    <button class="btn block" type="button" id="dlg-buy">Continue to checkout</button>
+    <p class="note" id="dlg-note">You'll pay on Stripe's secure page. Delivery is usually within a minute of payment. If you're offline, items arrive when you next join.</p>
+  </div>
+</dialog>
+
+<dialog id="basket-dialog" aria-labelledby="basket-title">
+  <div class="dlg">
+    <header><h2 id="basket-title">Your basket</h2><button class="close" type="button" data-close aria-label="Close">×</button></header>
+    <ul class="basket-list" id="basket-list"></ul>
+    <div class="err" id="basket-err" role="alert"></div>
+    <button class="btn block" type="button" id="basket-checkout">Check out</button>
+  </div>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <nav><a href="faq.html">FAQ</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
+    <span class="legal">Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</span>
+  </div>
+</footer>
+</body>
+</html>
