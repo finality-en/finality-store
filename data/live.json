@@ -1,6 +1,22 @@
 {
-  "generatedAt": "2026-11-19T18:52:32.695Z",
+  "generatedAt": "2026-11-19T18:59:55.641Z",
   "recentPayments": [
+    {
+      "player": "parsleyjosh",
+      "edition": "java",
+      "items": [
+        "3× Relic Key"
+      ],
+      "at": 1795114609175
+    },
+    {
+      "player": "parsleyjosh",
+      "edition": "java",
+      "items": [
+        "5× Kill Effect Lootbox"
+      ],
+      "at": 1795114426068
+    },
     {
       "player": "parsleyjosh",
       "edition": "java",
@@ -32,22 +48,6 @@
         "VIP → Finality"
       ],
       "at": 1794163412339
-    },
-    {
-      "player": "parsleyjosh",
-      "edition": "java",
-      "items": [
-        "VIP → MVP"
-      ],
-      "at": 1794162940247
-    },
-    {
-      "player": "parsleyjosh",
-      "edition": "java",
-      "items": [
-        "VIP Rank"
-      ],
-      "at": 1794162528776
     }
   ],
   "topCustomer": {
