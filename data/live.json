@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-21T14:17:30.221Z",
+  "generatedAt": "2026-11-21T14:19:51.125Z",
   "recentPayments": [
+    {
+      "player": "nohuzzdaniel",
+      "edition": "java",
+      "items": [
+        "Finality Rank"
+      ],
+      "at": 1795270775690
+    },
     {
       "player": "parsleyjosh",
       "edition": "java",
@@ -40,18 +48,10 @@
         "Finality Rank"
       ],
       "at": 1794163808463
-    },
-    {
-      "player": "parsleyjosh",
-      "edition": "java",
-      "items": [
-        "VIP → Finality"
-      ],
-      "at": 1794163412339
     }
   ],
   "topCustomer": {
-    "player": "parsleyjosh",
+    "player": "nohuzzdaniel",
     "edition": "java"
   },
   "goal": {
@@ -60,11 +60,11 @@
   },
   "server": {
     "online": true,
-    "players": 62,
+    "players": 67,
     "max": 100
   },
   "players": {
-    "online": 62,
+    "online": 67,
     "max": 100
   }
 }
