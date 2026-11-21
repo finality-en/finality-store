@@ -337,7 +337,38 @@
   }
 
   // ---------- basket (only when the store server is hosted publicly) ----------
-  function renderBasketCount() { $('basket-count').textContent = String(S.basket.length); }
+  function renderBasketCount() { $('basket-count').textContent = String(S.basket.length); pingSoon(); }
+
+  // ---------- live viewers (shown to staff in the store admin panel; no personal data) ----------
+  const presenceUrl = () => (S.catalog?.store?.checkoutApi || '').replace(/\/api\/checkout$/, '/api/presence') || null;
+  let sid = '';
+  try { sid = sessionStorage.getItem('fs_sid') || ''; } catch {}
+  if (!/^[A-Za-z0-9]{12,40}$/.test(sid)) {
+    sid = Array.from(crypto.getRandomValues(new Uint8Array(16)), b => (b % 36).toString(36)).join('');
+    try { sessionStorage.setItem('fs_sid', sid); } catch {}
+  }
+  let presenceRef = document.referrer || '', presencePage = null, pingTimer = null, leaving = false;
+  function ping(extra) {
+    const url = presenceUrl();
+    if (!url || leaving) return;
+    const body = { sid, page: presencePage || location.hash.replace(/^#\/?/, ''), player: S.me ? { edition: S.me.edition, name: S.me.name } : null,
+      basket: S.basket.map(b => ({ id: b.packageId, type: b.type })), ...extra };
+    if (presenceRef) { body.ref = presenceRef; presenceRef = ''; }
+    fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), keepalive: true }).catch(() => {});
+  }
+  function pingSoon() { clearTimeout(pingTimer); pingTimer = setTimeout(() => ping(), 400); }
+  function startPresence() {
+    if (!presenceUrl()) return;
+    ping();
+    setInterval(() => { if (document.visibilityState === 'visible') ping(); }, 15000);
+    addEventListener('hashchange', pingSoon);
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') ping(); });
+    $('basket-dialog').addEventListener('close', () => { if (presencePage === 'basket') { presencePage = null; pingSoon(); } });
+    addEventListener('pagehide', () => {
+      if (leaving) return;
+      try { navigator.sendBeacon(presenceUrl(), new Blob([JSON.stringify({ sid, leave: true })], { type: 'application/json' })); } catch {}
+    });
+  }
   function openBasket() {
     const c = S.catalog, list = $('basket-list');
     list.replaceChildren();
@@ -354,6 +385,7 @@
     if (note) { note.hidden = !sale || !S.basket.some(b => onSale(pkgOf(b.packageId) || {})); note.textContent = sale ? `${sale.percent}% sale applied automatically at checkout. Discount codes can't be added on top.` : ''; }
     $('basket-checkout').disabled = !S.basket.length;
     if (!$('basket-dialog').open) $('basket-dialog').showModal();
+    presencePage = 'basket'; pingSoon();
   }
   async function checkoutBasket() {
     const err = $('basket-err'); err.textContent = '';
@@ -366,6 +398,7 @@
         body: JSON.stringify({ player: S.me, giftTo: S.basket[0]?.gift || null, items: S.basket.map(b => ({ packageId: b.packageId, type: b.type })) }) });
       const j = await r.json();
       if (!r.ok || !/^https:\/\/checkout\.stripe\.com\//.test(j.url)) throw new Error(j.error || 'Checkout is unavailable right now.');
+      presencePage = 'checkout'; ping({ event: 'checkout' }); leaving = true;
       S.basket = []; save('fs_basket', []);
       location.href = j.url;
     } catch (e) { err.textContent = e.message; btn.disabled = false; btn.textContent = 'Check out'; }
@@ -462,7 +495,7 @@
     renderMe(); renderBasketCount(); snow();
 
     $('pb-login').addEventListener('click', () => openLogin());
-    $('pb-logout').addEventListener('click', () => { S.me = null; S.myTier = undefined; save('fs_player', null); renderMe(); if (S.catalog) render(); toast('Logged out'); });
+    $('pb-logout').addEventListener('click', () => { S.me = null; S.myTier = undefined; save('fs_player', null); renderMe(); pingSoon(); if (S.catalog) render(); toast('Logged out'); });
     $('login-form').addEventListener('click', e => { const b = e.target.closest('[data-edition]'); if (b) { segSet($('login-form'), 'data-edition', b.dataset.edition); $('username').focus(); } });
     $('username').addEventListener('input', () => {
       const n = $('username').value.trim(), ed = segValue($('login-form'), 'data-edition');
@@ -472,7 +505,7 @@
       e.preventDefault();
       const edition = segValue($('login-form'), 'data-edition'), name = $('username').value.trim();
       if (!validName(edition, name)) { $('login-err').textContent = nameError(edition); return; }
-      S.me = { edition, name }; save('fs_player', S.me); await refreshTier(); renderMe(); if (S.catalog) render();
+      S.me = { edition, name }; save('fs_player', S.me); await refreshTier(); renderMe(); pingSoon(); if (S.catalog) render();
       $('login-dialog').close(); toast(`Logged in as ${name}`);
       const next = afterLogin; afterLogin = null; if (next) next();
     });
@@ -507,6 +540,7 @@
       $('open-basket').hidden = !st.checkoutApi;
       renderSaleBar();
       render(); renderLive(); discordCount(st.discordUrl);
+      startPresence();
     } catch {
       $('view').replaceChildren(el('div', { class: 'empty-state', text: 'The store could not load. Refresh the page to try again.' }));
     }
