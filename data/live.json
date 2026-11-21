@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-21T14:19:51.125Z",
+  "generatedAt": "2026-11-21T14:25:44.382Z",
   "recentPayments": [
+    {
+      "player": "nohuzzdaniel",
+      "edition": "java",
+      "items": [
+        "5× Finality Key"
+      ],
+      "at": 1795270821846
+    },
     {
       "player": "nohuzzdaniel",
       "edition": "java",
@@ -40,14 +48,6 @@
         "VIP Rank"
       ],
       "at": 1794164310865
-    },
-    {
-      "player": "parsleyjosh",
-      "edition": "java",
-      "items": [
-        "Finality Rank"
-      ],
-      "at": 1794163808463
     }
   ],
   "topCustomer": {
@@ -60,11 +60,11 @@
   },
   "server": {
     "online": true,
-    "players": 67,
+    "players": 70,
     "max": 100
   },
   "players": {
-    "online": 67,
+    "online": 70,
     "max": 100
   }
 }
