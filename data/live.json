@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-21T20:27:43.087Z",
+  "generatedAt": "2026-11-21T20:48:01.746Z",
   "recentPayments": [
+    {
+      "player": "sp5yder",
+      "edition": "java",
+      "items": [
+        "3× Relic Key"
+      ],
+      "at": 1795292987649
+    },
     {
       "player": "qon1k_",
       "edition": "java",
@@ -40,14 +48,6 @@
         "3× Relic Key"
       ],
       "at": 1795114609175
-    },
-    {
-      "player": "parsleyjosh",
-      "edition": "java",
-      "items": [
-        "5× Kill Effect Lootbox"
-      ],
-      "at": 1795114426068
     }
   ],
   "topCustomer": {
@@ -56,15 +56,15 @@
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 15
+    "percent": 26
   },
   "server": {
     "online": true,
-    "players": 36,
+    "players": 39,
     "max": 100
   },
   "players": {
-    "online": 36,
+    "online": 39,
     "max": 100
   }
 }
