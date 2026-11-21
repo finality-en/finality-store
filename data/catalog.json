@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T15:09:18.197Z",
+  "generatedAt": "2026-11-21T15:33:44.364Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -11,7 +11,8 @@
     "currency": "usd",
     "floodgatePrefix": ".",
     "testMode": false,
-    "checkoutApi": null
+    "checkoutApi": null,
+    "sale": null
   },
   "categories": [
     {

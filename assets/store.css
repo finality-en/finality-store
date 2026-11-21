@@ -41,6 +41,9 @@ h1, h2, h3 { margin: 0; line-height: 1.2; font-weight: 800; letter-spacing: -.01
 /* ---------- ribbons ---------- */
 .ribbon { text-align: center; font-size: 13.5px; font-weight: 600; padding: 8px 16px; background: #3b2a06; color: #ffe29a; border-bottom: 1px solid rgba(255, 204, 77, .3); }
 .ribbon.notice { background: linear-gradient(90deg, #7a1620, #b3222d, #7a1620); color: #fff; border: 0; }
+.ribbon.sale { background: linear-gradient(90deg, #0b4a6e, #1688c4, #0b4a6e); color: #fff; border: 0; font-weight: 600; }
+.ribbon.sale b { font-weight: 800; letter-spacing: .02em; text-transform: uppercase; }
+.ribbon.sale .sale-left { color: #cdeeff; white-space: nowrap; }
 
 /* ---------- hero ---------- */
 .hero { position: relative; overflow: hidden; background: #050b18 url('img/hero-bg.svg') center bottom / cover no-repeat; border-bottom: 1px solid var(--line); }
@@ -175,6 +178,8 @@ h1, h2, h3 { margin: 0; line-height: 1.2; font-weight: 800; letter-spacing: -.01
 .price b { font-size: 21px; font-weight: 800; }
 .price s { color: var(--muted); font-size: 14px; }
 .price small { color: var(--muted); font-size: 13.5px; font-weight: 600; }
+.price .sale-tag { font-size: 12px; font-weight: 800; padding: 2px 7px; border-radius: 6px; background: #1688c4; color: #fff; align-self: center; }
+.basket-sale { margin: 10px 0 0; padding: 9px 12px; border-radius: 9px; background: rgba(22, 136, 196, .14); color: #bfe6ff; font-size: 13.5px; font-weight: 600; }
 .pkg-actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
 .more-btn { min-width: 42px; padding: 0 12px; }
 

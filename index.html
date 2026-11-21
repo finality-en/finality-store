@@ -29,6 +29,7 @@
 <a class="skip" href="#content">Skip to content</a>
 <div class="ribbon" id="test-ribbon" hidden>Test mode: payments use Stripe test cards and no real money is taken.</div>
 <div class="ribbon notice" id="notice" hidden></div>
+<div class="ribbon sale" id="sale-bar" role="status" hidden></div>
 
 <header class="hero">
   <canvas class="snow" id="snow" aria-hidden="true"></canvas>
@@ -161,6 +162,7 @@
     <button class="close" type="button" data-close aria-label="Close">×</button>
     <h2 id="basket-title">Your basket</h2>
     <ul class="basket-list" id="basket-list"></ul>
+    <p class="basket-sale" id="basket-sale" hidden></p>
     <p class="err" id="basket-err" role="alert"></p>
     <button class="btn block lg" type="button" id="basket-checkout">Check out</button>
   </div>

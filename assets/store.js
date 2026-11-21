@@ -187,14 +187,44 @@
     return frag;
   }
 
+  // ---------- store-wide sale ----------
+  const onSale = p => !!(S.catalog?.store?.sale && (p.regularPrice != null || p.monthlyFirstPrice != null));
+  // The catalog is regenerated every minute, but a page left open past the end time undoes the sale itself.
+  function endSaleIfOver() {
+    const c = S.catalog, sale = c?.store?.sale;
+    if (!sale || !sale.endsAt || Date.now() < sale.endsAt) return false;
+    for (const p of c.packages) {
+      if (p.regularPrice != null) { p.price = p.regularPrice; p.compareAtPrice = p.regularCompareAtPrice ?? null; }
+      delete p.regularPrice; delete p.regularCompareAtPrice; delete p.monthlyFirstPrice;
+    }
+    c.store.sale = null;
+    return true;
+  }
+  let saleTimer = null;
+  function renderSaleBar() {
+    clearTimeout(saleTimer);
+    const sale = S.catalog?.store?.sale, bar = $('sale-bar');
+    if (!bar) return;
+    if (!sale) { bar.hidden = true; return; }
+    const left = sale.endsAt ? sale.endsAt - Date.now() : null;
+    const d = left === null ? '' : left > 864e5 ? `${Math.floor(left / 864e5)}d ${Math.floor(left % 864e5 / 36e5)}h` : left > 36e5 ? `${Math.floor(left / 36e5)}h ${Math.floor(left % 36e5 / 6e4)}m` : `${Math.max(1, Math.ceil(left / 6e4))}m`;
+    bar.replaceChildren(el('b', { text: sale.label || `${sale.percent}% off everything` }),
+      el('span', { text: sale.label ? ` · ${sale.percent}% off everything, no code needed` : ' · no code needed, applied at checkout' }),
+      d ? el('span', { class: 'sale-left', text: ` · ends in ${d}` }) : null);
+    bar.hidden = false;
+    if (left !== null) saleTimer = setTimeout(() => { if (endSaleIfOver()) { renderSaleBar(); render(); } else renderSaleBar(); }, Math.min(left + 500, 60e3));
+  }
+
   function priceLine(p, cur) {
     const out = el('div', { class: 'price' });
     if (p.price !== null && p.price !== undefined) {
       out.append(el('b', { text: money(p.price, cur) }));
       if (p.compareAtPrice) out.append(el('s', { text: money(p.compareAtPrice, cur), 'aria-label': `was ${money(p.compareAtPrice, cur)}` }));
+      if (onSale(p)) out.append(el('span', { class: 'sale-tag', text: `-${S.catalog.store.sale.percent}%` }));
       if (p.monthlyPrice !== null && p.monthlyPrice !== undefined) out.append(el('small', { text: `or ${money(p.monthlyPrice, cur)}/month` }));
     } else if (p.monthlyPrice !== null && p.monthlyPrice !== undefined) {
-      out.append(el('b', { text: money(p.monthlyPrice, cur) }), el('small', { text: 'per month' }));
+      if (p.monthlyFirstPrice != null) out.append(el('b', { text: money(p.monthlyFirstPrice, cur) }), el('s', { text: money(p.monthlyPrice, cur), 'aria-label': `normally ${money(p.monthlyPrice, cur)}` }), el('small', { text: `first month, then ${money(p.monthlyPrice, cur)}/month` }));
+      else out.append(el('b', { text: money(p.monthlyPrice, cur) }), el('small', { text: 'per month' }));
     }
     return out;
   }
@@ -251,7 +281,7 @@
     // purchase options
     const opts = [];
     if (p.price !== null && p.price !== undefined) opts.push(['once', p.kind === 'giftcard' ? 'Gift card' : 'One-time payment', p.kind === 'giftcard' ? 'Single-use code, sent in game' : 'Yours to keep', money(p.price, cur)]);
-    if (p.monthlyPrice !== null && p.monthlyPrice !== undefined) opts.push(['monthly', 'Monthly', 'Renews each month, cancel any time', `${money(p.monthlyPrice, cur)}/mo`]);
+    if (p.monthlyPrice !== null && p.monthlyPrice !== undefined) opts.push(['monthly', 'Monthly', p.monthlyFirstPrice != null ? `${money(p.monthlyFirstPrice, cur)} for the first month, then ${money(p.monthlyPrice, cur)}/mo` : 'Renews each month, cancel any time', `${money(p.monthlyFirstPrice ?? p.monthlyPrice, cur)}/mo`]);
     $('pd-options').replaceChildren(...opts.map(([v, label, sub, amt], i) => el('label', { class: 'option' },
       el('input', { type: 'radio', name: 'ptype', value: v, checked: i === 0 }),
       el('span', { class: 'o-label' }, el('b', { text: label }), el('small', { text: sub })), el('span', { class: 'o-amt', text: amt }))));
@@ -313,13 +343,15 @@
     list.replaceChildren();
     for (const b of S.basket) {
       const p = pkgOf(b.packageId); if (!p) continue;
-      const amt = b.type === 'monthly' ? `${money(p.monthlyPrice, c.store.currency)}/mo` : money(p.price, c.store.currency);
+      const amt = b.type === 'monthly' ? (p.monthlyFirstPrice != null ? `${money(p.monthlyFirstPrice, c.store.currency)} first month` : `${money(p.monthlyPrice, c.store.currency)}/mo`) : money(p.price, c.store.currency);
       list.append(el('li', {}, el('img', { src: safeImg(p.image) || 'assets/img/logo.webp', alt: '' }),
         el('div', { class: 'bl-name' }, el('b', { text: p.name }), el('small', { text: b.gift ? `Gift for ${b.gift.name}` : (b.type === 'monthly' ? 'Monthly' : 'One-time') })),
         el('b', { text: amt }),
         el('button', { class: 'link', type: 'button', text: 'Remove', onclick: () => { S.basket = S.basket.filter(x => x !== b); save('fs_basket', S.basket); renderBasketCount(); openBasket(); } })));
     }
     if (!list.children.length) list.append(el('li', { class: 'muted', text: 'Your basket is empty.' }));
+    const sale = c.store.sale, note = $('basket-sale');
+    if (note) { note.hidden = !sale || !S.basket.some(b => onSale(pkgOf(b.packageId) || {})); note.textContent = sale ? `${sale.percent}% sale applied automatically at checkout. Discount codes can't be added on top.` : ''; }
     $('basket-checkout').disabled = !S.basket.length;
     if (!$('basket-dialog').open) $('basket-dialog').showModal();
   }
@@ -464,6 +496,7 @@
         fetch(`data/ranks.json?t=${Date.now()}`).then(r => (r.ok ? r.json() : null)).catch(() => null),
       ]).then(([a, b, c]) => { S.ranks = c; return [a, b]; });
       S.catalog = cat; S.live = live;
+      endSaleIfOver();
       await refreshTier();
       const st = cat.store;
       if (st.serverIp) { $('server-ip').textContent = st.serverIp; document.querySelector('.footer-brand span').textContent = st.serverIp; }
@@ -472,6 +505,7 @@
       $('test-ribbon').hidden = !st.testMode;
       if (st.notice) { $('notice').textContent = st.notice; $('notice').hidden = false; }
       $('open-basket').hidden = !st.checkoutApi;
+      renderSaleBar();
       render(); renderLive(); discordCount(st.discordUrl);
     } catch {
       $('view').replaceChildren(el('div', { class: 'empty-state', text: 'The store could not load. Refresh the page to try again.' }));
