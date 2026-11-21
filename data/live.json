@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-21T15:09:18.197Z",
+  "generatedAt": "2026-11-21T15:16:56.197Z",
   "recentPayments": [
+    {
+      "player": "qon1k_",
+      "edition": "java",
+      "items": [
+        "VIP Rank"
+      ],
+      "at": 1795274207137
+    },
     {
       "player": "nohuzzdaniel",
       "edition": "java",
@@ -40,31 +48,23 @@
         "Season Starter Kit"
       ],
       "at": 1794178706490
-    },
-    {
-      "player": "parsleyjosh",
-      "edition": "java",
-      "items": [
-        "VIP Rank"
-      ],
-      "at": 1794164310865
     }
   ],
   "topCustomer": {
-    "player": "nohuzzdaniel",
+    "player": "qon1k_",
     "edition": "java"
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 0
+    "percent": 9
   },
   "server": {
     "online": true,
-    "players": 68,
+    "players": 63,
     "max": 100
   },
   "players": {
-    "online": 68,
+    "online": 63,
     "max": 100
   }
 }
