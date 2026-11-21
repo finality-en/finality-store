@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T18:42:34.889Z",
+  "generatedAt": "2026-11-21T15:09:18.197Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -55,40 +55,9 @@
       "description": "",
       "image": "assets/img/revive.webp",
       "guiIcon": "TOTEM_OF_UNDYING"
-    },
-    {
-      "id": "gift-cards",
-      "name": "Gift Cards",
-      "description": "Store credit for a friend.",
-      "image": "assets/img/gift-card-10.webp",
-      "guiIcon": "CAKE"
     }
   ],
   "packages": [
-    {
-      "id": "10-gift-card",
-      "name": "$10 Gift Card",
-      "categoryId": "gift-cards",
-      "description": "A single-use code worth $10 at checkout. The code is sent to the player in-game.",
-      "body": "A single-use code worth $10 at checkout. The code is sent to the player in-game.",
-      "image": "assets/img/gift-card-10.webp",
-      "kind": "giftcard",
-      "badge": "",
-      "giftable": true,
-      "upgradeFrom": null,
-      "upgradeFromName": null,
-      "upgradeTier": null,
-      "price": 1000,
-      "compareAtPrice": null,
-      "monthlyPrice": null,
-      "contentsTitle": "",
-      "contents": [],
-      "guiIcon": "PAPER",
-      "links": {
-        "once": "https://buy.stripe.com/4gM6oI96vfOQ4b84Ju9AA07",
-        "monthly": null
-      }
-    },
     {
       "id": "finality-key",
       "name": "Finality Key",
@@ -364,30 +333,6 @@
       "guiIcon": "GOLD_INGOT",
       "links": {
         "once": "https://buy.stripe.com/28E7sMciH3249vsb7S9AA01",
-        "monthly": null
-      }
-    },
-    {
-      "id": "25-gift-card",
-      "name": "$25 Gift Card",
-      "categoryId": "gift-cards",
-      "description": "A single-use code worth $25 at checkout. The code is sent to the player in-game.",
-      "body": "A single-use code worth $25 at checkout. The code is sent to the player in-game.",
-      "image": "assets/img/gift-card-25.webp",
-      "kind": "giftcard",
-      "badge": "",
-      "giftable": true,
-      "upgradeFrom": null,
-      "upgradeFromName": null,
-      "upgradeTier": null,
-      "price": 2500,
-      "compareAtPrice": null,
-      "monthlyPrice": null,
-      "contentsTitle": "",
-      "contents": [],
-      "guiIcon": "PAPER",
-      "links": {
-        "once": "https://buy.stripe.com/fZu3cw96v0TWfTQcbW9AA08",
         "monthly": null
       }
     },
