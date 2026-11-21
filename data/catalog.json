@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T15:34:31.338Z",
+  "generatedAt": "2026-11-21T15:35:06.081Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -12,7 +12,11 @@
     "floodgatePrefix": ".",
     "testMode": false,
     "checkoutApi": "https://store.finalitymc.org/api/checkout",
-    "sale": null
+    "sale": {
+      "percent": 40,
+      "label": "CHRISTMAS SALE",
+      "endsAt": 1795880040000
+    }
   },
   "categories": [
     {
@@ -72,8 +76,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 300,
-      "compareAtPrice": null,
+      "price": 180,
+      "compareAtPrice": 300,
       "monthlyPrice": null,
       "contentsTitle": "Possible rewards",
       "contents": [
@@ -122,7 +126,9 @@
       "links": {
         "once": "https://buy.stripe.com/aFa00k0zZ1Y0bDA4Ju9AA09",
         "monthly": null
-      }
+      },
+      "regularPrice": 300,
+      "regularCompareAtPrice": null
     },
     {
       "id": "ke-lootbox",
@@ -137,8 +143,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 250,
-      "compareAtPrice": null,
+      "price": 150,
+      "compareAtPrice": 250,
       "monthlyPrice": null,
       "contentsTitle": "Can unlock",
       "contents": [
@@ -237,7 +243,9 @@
       "links": {
         "once": "https://buy.stripe.com/5kQ8wQ6Yn6egdLI4Ju9AA0f",
         "monthly": null
-      }
+      },
+      "regularPrice": 250,
+      "regularCompareAtPrice": null
     },
     {
       "id": "starter-kit",
@@ -252,8 +260,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 750,
-      "compareAtPrice": null,
+      "price": 450,
+      "compareAtPrice": 750,
       "monthlyPrice": null,
       "contentsTitle": "Can contain",
       "contents": [
@@ -287,7 +295,9 @@
       "links": {
         "once": "https://buy.stripe.com/9B69AU82rauwgXU1xi9AA0e",
         "monthly": null
-      }
+      },
+      "regularPrice": 750,
+      "regularCompareAtPrice": null
     },
     {
       "id": "vip-mvp",
@@ -302,8 +312,8 @@
       "upgradeFrom": "vip-rank",
       "upgradeFromName": "VIP Rank",
       "upgradeTier": "vip",
-      "price": 1000,
-      "compareAtPrice": null,
+      "price": 600,
+      "compareAtPrice": 1000,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
@@ -311,7 +321,9 @@
       "links": {
         "once": "https://buy.stripe.com/eVq9AU4QffOQePM4Ju9AA04",
         "monthly": null
-      }
+      },
+      "regularPrice": 1000,
+      "regularCompareAtPrice": null
     },
     {
       "id": "vip-rank",
@@ -326,8 +338,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 1500,
-      "compareAtPrice": null,
+      "price": 900,
+      "compareAtPrice": 1500,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
@@ -335,7 +347,9 @@
       "links": {
         "once": "https://buy.stripe.com/28E7sMciH3249vsb7S9AA01",
         "monthly": null
-      }
+      },
+      "regularPrice": 1500,
+      "regularCompareAtPrice": null
     },
     {
       "id": "finality-key-5",
@@ -350,8 +364,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 1200,
-      "compareAtPrice": 1500,
+      "price": 720,
+      "compareAtPrice": 1200,
       "monthlyPrice": null,
       "contentsTitle": "Possible rewards",
       "contents": [
@@ -400,7 +414,9 @@
       "links": {
         "once": "https://buy.stripe.com/28EbJ282r6egfTQfo89AA0a",
         "monthly": null
-      }
+      },
+      "regularPrice": 1200,
+      "regularCompareAtPrice": 1500
     },
     {
       "id": "ke-lootbox-5",
@@ -415,8 +431,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 1000,
-      "compareAtPrice": 1250,
+      "price": 600,
+      "compareAtPrice": 1000,
       "monthlyPrice": null,
       "contentsTitle": "Can unlock",
       "contents": [
@@ -515,7 +531,9 @@
       "links": {
         "once": "https://buy.stripe.com/5kQ3cwgyXfOQ2306RC9AA0g",
         "monthly": null
-      }
+      },
+      "regularPrice": 1000,
+      "regularCompareAtPrice": 1250
     },
     {
       "id": "mvp-finality",
@@ -530,8 +548,8 @@
       "upgradeFrom": "mvp-rank",
       "upgradeFromName": "MVP Rank",
       "upgradeTier": "mvp",
-      "price": 2500,
-      "compareAtPrice": null,
+      "price": 1500,
+      "compareAtPrice": 2500,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
@@ -539,7 +557,9 @@
       "links": {
         "once": "https://buy.stripe.com/4gM3cweqP6eg9vsfo89AA05",
         "monthly": null
-      }
+      },
+      "regularPrice": 2500,
+      "regularCompareAtPrice": null
     },
     {
       "id": "mvp-rank",
@@ -554,8 +574,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 2500,
-      "compareAtPrice": null,
+      "price": 1500,
+      "compareAtPrice": 2500,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
@@ -563,7 +583,9 @@
       "links": {
         "once": "https://buy.stripe.com/bJefZi0zZfOQ0YWgsc9AA02",
         "monthly": null
-      }
+      },
+      "regularPrice": 2500,
+      "regularCompareAtPrice": null
     },
     {
       "id": "unban",
@@ -578,8 +600,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 1500,
-      "compareAtPrice": null,
+      "price": 900,
+      "compareAtPrice": 1500,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
@@ -587,7 +609,9 @@
       "links": {
         "once": "https://buy.stripe.com/00wbJ2eqPauw0YWgsc9AA0r",
         "monthly": null
-      }
+      },
+      "regularPrice": 1500,
+      "regularCompareAtPrice": null
     },
     {
       "id": "finality-rank",
@@ -602,8 +626,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 5000,
-      "compareAtPrice": null,
+      "price": 3000,
+      "compareAtPrice": 5000,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
@@ -611,7 +635,9 @@
       "links": {
         "once": "https://buy.stripe.com/bJebJ2aaz7ikgXU8ZK9AA03",
         "monthly": null
-      }
+      },
+      "regularPrice": 5000,
+      "regularCompareAtPrice": null
     },
     {
       "id": "bundle-frostbite",
@@ -626,8 +652,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 600,
-      "compareAtPrice": null,
+      "price": 360,
+      "compareAtPrice": 600,
       "monthlyPrice": null,
       "contentsTitle": "Included",
       "contents": [
@@ -656,7 +682,9 @@
       "links": {
         "once": "https://buy.stripe.com/00w6oI2I71Y03741xi9AA0h",
         "monthly": null
-      }
+      },
+      "regularPrice": 600,
+      "regularCompareAtPrice": null
     },
     {
       "id": "relic-key",
@@ -671,8 +699,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 725,
-      "compareAtPrice": null,
+      "price": 435,
+      "compareAtPrice": 725,
       "monthlyPrice": null,
       "contentsTitle": "Possible rewards",
       "contents": [
@@ -716,7 +744,9 @@
       "links": {
         "once": "https://buy.stripe.com/9B6cN6gyX7ikcHE4Ju9AA0o",
         "monthly": null
-      }
+      },
+      "regularPrice": 725,
+      "regularCompareAtPrice": null
     },
     {
       "id": "vip-finality",
@@ -731,8 +761,8 @@
       "upgradeFrom": "vip-rank",
       "upgradeFromName": "VIP Rank",
       "upgradeTier": "vip",
-      "price": 3500,
-      "compareAtPrice": null,
+      "price": 2100,
+      "compareAtPrice": 3500,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
@@ -740,7 +770,9 @@
       "links": {
         "once": "https://buy.stripe.com/8x2aEY82rbyA7nkb7S9AA06",
         "monthly": null
-      }
+      },
+      "regularPrice": 3500,
+      "regularCompareAtPrice": null
     },
     {
       "id": "relic-key-3",
@@ -755,8 +787,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 1750,
-      "compareAtPrice": 2175,
+      "price": 1050,
+      "compareAtPrice": 1750,
       "monthlyPrice": null,
       "contentsTitle": "Possible rewards",
       "contents": [
@@ -800,7 +832,9 @@
       "links": {
         "once": "https://buy.stripe.com/bJe7sMciH6eg2303Fq9AA0p",
         "monthly": null
-      }
+      },
+      "regularPrice": 1750,
+      "regularCompareAtPrice": 2175
     },
     {
       "id": "bundle-inferno",
@@ -815,8 +849,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 600,
-      "compareAtPrice": null,
+      "price": 360,
+      "compareAtPrice": 600,
       "monthlyPrice": null,
       "contentsTitle": "Included",
       "contents": [
@@ -845,7 +879,9 @@
       "links": {
         "once": "https://buy.stripe.com/14AcN682r6eg230cbW9AA0i",
         "monthly": null
-      }
+      },
+      "regularPrice": 600,
+      "regularCompareAtPrice": null
     },
     {
       "id": "bundle-celestial",
@@ -860,8 +896,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 600,
-      "compareAtPrice": null,
+      "price": 360,
+      "compareAtPrice": 600,
       "monthlyPrice": null,
       "contentsTitle": "Included",
       "contents": [
@@ -890,7 +926,9 @@
       "links": {
         "once": "https://buy.stripe.com/8x214ogyXgSUgXUgsc9AA0j",
         "monthly": null
-      }
+      },
+      "regularPrice": 600,
+      "regularCompareAtPrice": null
     },
     {
       "id": "key-bundle",
@@ -905,8 +943,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 2000,
-      "compareAtPrice": 2500,
+      "price": 1200,
+      "compareAtPrice": 2000,
       "monthlyPrice": null,
       "contentsTitle": "Included",
       "contents": [
@@ -930,7 +968,9 @@
       "links": {
         "once": "https://buy.stripe.com/7sY9AU4Qf0TWgXU8ZK9AA0q",
         "monthly": null
-      }
+      },
+      "regularPrice": 2000,
+      "regularCompareAtPrice": 2500
     },
     {
       "id": "bundle-party",
@@ -945,8 +985,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 600,
-      "compareAtPrice": null,
+      "price": 360,
+      "compareAtPrice": 600,
       "monthlyPrice": null,
       "contentsTitle": "Included",
       "contents": [
@@ -975,7 +1015,9 @@
       "links": {
         "once": "https://buy.stripe.com/fZuaEYbeDfOQ4b8gsc9AA0k",
         "monthly": null
-      }
+      },
+      "regularPrice": 600,
+      "regularCompareAtPrice": null
     },
     {
       "id": "ke-collection",
@@ -990,8 +1032,8 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 2500,
-      "compareAtPrice": 3600,
+      "price": 1500,
+      "compareAtPrice": 2500,
       "monthlyPrice": null,
       "contentsTitle": "Included",
       "contents": [
@@ -1090,7 +1132,9 @@
       "links": {
         "once": "https://buy.stripe.com/5kQ5kEdmL1Y03741xi9AA0l",
         "monthly": null
-      }
+      },
+      "regularPrice": 2500,
+      "regularCompareAtPrice": 3600
     }
   ]
 }
