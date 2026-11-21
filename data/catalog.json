@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T15:35:06.081Z",
+  "generatedAt": "2026-11-21T16:57:02.601Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -60,6 +60,13 @@
       "description": "",
       "image": "assets/img/revive.webp",
       "guiIcon": "TOTEM_OF_UNDYING"
+    },
+    {
+      "id": "classes",
+      "name": "Classes",
+      "description": "Special Class Rolls: spin for a chance at one of Finality's special classes.",
+      "image": "",
+      "guiIcon": ""
     }
   ],
   "packages": [
@@ -300,6 +307,32 @@
       "regularCompareAtPrice": null
     },
     {
+      "id": "special-class-roll",
+      "name": "Special Class Roll",
+      "categoryId": "classes",
+      "description": "Unlock a special class\nSpin the Special Class Roll for a chance at one of Finality's special classes.\n- 1x Special Class Roll\n- Delivered straight to you in game\nUse it in game to spin. Check the odds with /class roll odds",
+      "body": "## Unlock a special class\nSpin the **Special Class Roll** for a chance at one of Finality's special classes.\n\n- 1x Special Class Roll\n- Delivered straight to you in game\n> Use it in game to spin. Check the odds with /class roll odds",
+      "image": "",
+      "kind": "standard",
+      "badge": "",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "price": 600,
+      "compareAtPrice": 1000,
+      "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "NETHER_STAR",
+      "links": {
+        "once": "https://buy.stripe.com/9B6aEY5UjdGI7nk7VG9AA0s",
+        "monthly": null
+      },
+      "regularPrice": 1000,
+      "regularCompareAtPrice": null
+    },
+    {
       "id": "vip-mvp",
       "name": "VIP → MVP",
       "categoryId": "rank-upgrades",
@@ -534,6 +567,32 @@
       },
       "regularPrice": 1000,
       "regularCompareAtPrice": 1250
+    },
+    {
+      "id": "5x-special-class-roll",
+      "name": "5x Special Class Roll",
+      "categoryId": "classes",
+      "description": "5 rolls, 5 chances\nFive Special Class Rolls for the price of four.\n- 5x Special Class Roll\n- Save $10 compared to buying them one at a time\nUse them in game to spin. Check the odds with /class roll odds",
+      "body": "## 5 rolls, 5 chances\nFive **Special Class Rolls** for the price of four.\n\n- 5x Special Class Roll\n- Save $10 compared to buying them one at a time\n> Use them in game to spin. Check the odds with /class roll odds",
+      "image": "",
+      "kind": "standard",
+      "badge": "Best value",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "price": 2400,
+      "compareAtPrice": 4000,
+      "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "NETHER_STAR",
+      "links": {
+        "once": "https://buy.stripe.com/4gMdRagyX4685fc0te9AA0t",
+        "monthly": null
+      },
+      "regularPrice": 4000,
+      "regularCompareAtPrice": 5000
     },
     {
       "id": "mvp-finality",
