@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T11:34:45.831Z",
+  "generatedAt": "2026-11-21T11:45:14.544Z",
   "recentPayments": [
     {
       "player": "parsleyjosh",
@@ -59,9 +59,12 @@
     "percent": 0
   },
   "server": {
-    "online": false,
+    "online": true,
     "players": 0,
-    "max": null
+    "max": 125
   },
-  "players": null
+  "players": {
+    "online": 0,
+    "max": 125
+  }
 }
