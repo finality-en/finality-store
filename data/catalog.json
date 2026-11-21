@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T16:57:02.601Z",
+  "generatedAt": "2026-11-21T17:00:42.863Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -65,8 +65,8 @@
       "id": "classes",
       "name": "Classes",
       "description": "Special Class Rolls: spin for a chance at one of Finality's special classes.",
-      "image": "",
-      "guiIcon": ""
+      "image": "assets/img/cat-classes.webp",
+      "guiIcon": "NETHER_STAR"
     }
   ],
   "packages": [
@@ -312,7 +312,7 @@
       "categoryId": "classes",
       "description": "Unlock a special class\nSpin the Special Class Roll for a chance at one of Finality's special classes.\n- 1x Special Class Roll\n- Delivered straight to you in game\nUse it in game to spin. Check the odds with /class roll odds",
       "body": "## Unlock a special class\nSpin the **Special Class Roll** for a chance at one of Finality's special classes.\n\n- 1x Special Class Roll\n- Delivered straight to you in game\n> Use it in game to spin. Check the odds with /class roll odds",
-      "image": "",
+      "image": "assets/img/class-roll.webp",
       "kind": "standard",
       "badge": "",
       "giftable": true,
@@ -574,7 +574,7 @@
       "categoryId": "classes",
       "description": "5 rolls, 5 chances\nFive Special Class Rolls for the price of four.\n- 5x Special Class Roll\n- Save $10 compared to buying them one at a time\nUse them in game to spin. Check the odds with /class roll odds",
       "body": "## 5 rolls, 5 chances\nFive **Special Class Rolls** for the price of four.\n\n- 5x Special Class Roll\n- Save $10 compared to buying them one at a time\n> Use them in game to spin. Check the odds with /class roll odds",
-      "image": "",
+      "image": "assets/img/class-roll-5.webp",
       "kind": "standard",
       "badge": "Best value",
       "giftable": true,
