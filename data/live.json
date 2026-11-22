@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T02:59:20.257Z",
+  "generatedAt": "2026-11-22T03:19:45.516Z",
   "recentPayments": [
     {
       "player": "TrevorChow5149",
@@ -58,15 +58,15 @@
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 100
+    "percent": 45
   },
   "server": {
     "online": true,
-    "players": 10,
+    "players": 12,
     "max": 100
   },
   "players": {
-    "online": 10,
+    "online": 12,
     "max": 100
   }
 }
