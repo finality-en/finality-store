@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T02:40:02.649Z",
+  "generatedAt": "2026-11-22T13:32:44.698Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -659,17 +659,17 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
-      "price": 900,
-      "compareAtPrice": 1500,
+      "price": 1200,
+      "compareAtPrice": 2000,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
       "guiIcon": "IRON_BARS",
       "links": {
-        "once": "https://buy.stripe.com/00wbJ2eqPauw0YWgsc9AA0r",
+        "once": "https://buy.stripe.com/14AfZibeD5acbDA4Ju9AA0v",
         "monthly": null
       },
-      "regularPrice": 1500,
+      "regularPrice": 2000,
       "regularCompareAtPrice": null
     },
     {
