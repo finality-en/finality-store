@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T13:32:44.698Z",
+  "generatedAt": "2026-11-22T13:38:14.877Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -650,8 +650,8 @@
       "id": "unban",
       "name": "Unban",
       "categoryId": "unbans-revives",
-      "description": "Lifts a standard ban. Doesn't apply to bans for cheating, chargebacks or exploits.",
-      "body": "Lifts a standard ban. Doesn't apply to bans for cheating, chargebacks or exploits.",
+      "description": "Lifts a standard ban. Doesn't apply to bans for chargebacks or exploits.",
+      "body": "Lifts a standard ban. Doesn't apply to bans for chargebacks or exploits.",
       "image": "assets/img/unban.webp",
       "kind": "standard",
       "badge": "",
