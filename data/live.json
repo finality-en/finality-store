@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-22T14:56:52.709Z",
+  "generatedAt": "2026-11-22T15:06:08.709Z",
   "recentPayments": [
+    {
+      "player": "PLN1ko",
+      "edition": "java",
+      "items": [
+        "VIP → MVP"
+      ],
+      "at": 1795359944934
+    },
     {
       "player": "_ceiler",
       "edition": "java",
@@ -42,14 +50,6 @@
         "VIP Rank"
       ],
       "at": 1795274207137
-    },
-    {
-      "player": "nohuzzdaniel",
-      "edition": "java",
-      "items": [
-        "5× Finality Key"
-      ],
-      "at": 1795270821846
     }
   ],
   "topCustomer": {
@@ -58,15 +58,15 @@
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 51
+    "percent": 53
   },
   "server": {
     "online": true,
-    "players": 46,
+    "players": 45,
     "max": 100
   },
   "players": {
-    "online": 46,
+    "online": 45,
     "max": 100
   }
 }
