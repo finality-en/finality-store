@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-22T14:18:46.721Z",
+  "generatedAt": "2026-11-22T14:36:27.020Z",
   "recentPayments": [
+    {
+      "player": "_ceiler",
+      "edition": "java",
+      "items": [
+        "MVP Rank"
+      ],
+      "at": 1795358176543
+    },
     {
       "player": "TrevorChow5149",
       "edition": "java",
@@ -42,14 +50,6 @@
         "5× Finality Key"
       ],
       "at": 1795270821846
-    },
-    {
-      "player": "nohuzzdaniel",
-      "edition": "java",
-      "items": [
-        "Finality Rank"
-      ],
-      "at": 1795270775690
     }
   ],
   "topCustomer": {
@@ -58,15 +58,15 @@
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 45
+    "percent": 51
   },
   "server": {
     "online": true,
-    "players": 49,
+    "players": 45,
     "max": 100
   },
   "players": {
-    "online": 49,
+    "online": 45,
     "max": 100
   }
 }
