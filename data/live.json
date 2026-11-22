@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T14:36:27.020Z",
+  "generatedAt": "2026-11-22T14:56:52.709Z",
   "recentPayments": [
     {
       "player": "_ceiler",
@@ -62,11 +62,11 @@
   },
   "server": {
     "online": true,
-    "players": 45,
+    "players": 46,
     "max": 100
   },
   "players": {
-    "online": 45,
+    "online": 46,
     "max": 100
   }
 }
