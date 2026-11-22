@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T12:45:21.997Z",
+  "generatedAt": "2026-11-22T13:05:40.507Z",
   "recentPayments": [
     {
       "player": "TrevorChow5149",
@@ -62,11 +62,11 @@
   },
   "server": {
     "online": true,
-    "players": 31,
+    "players": 44,
     "max": 100
   },
   "players": {
-    "online": 31,
+    "online": 44,
     "max": 100
   }
 }
