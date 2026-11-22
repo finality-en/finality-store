@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T17:00:42.863Z",
+  "generatedAt": "2026-11-22T02:40:02.649Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -941,6 +941,68 @@
       },
       "regularPrice": 600,
       "regularCompareAtPrice": null
+    },
+    {
+      "id": "3-relic-key-copy",
+      "name": "12× Relic Key",
+      "categoryId": "crate-keys",
+      "description": "Three mythic keys for the Relic Vault.\n- Demonic, Astral and Glacier gear\n- Class rolls and tokens",
+      "body": "Three mythic keys for the Relic Vault.\r\n- Demonic, Astral and Glacier gear\r\n- Class rolls and tokens",
+      "image": "assets/img/key-relic-3.webp",
+      "kind": "standard",
+      "badge": "Save 20%",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "price": 4200,
+      "compareAtPrice": 7000,
+      "monthlyPrice": null,
+      "contentsTitle": "Possible rewards",
+      "contents": [
+        {
+          "name": "Demonic gear",
+          "image": "",
+          "note": "Rare"
+        },
+        {
+          "name": "Astral gear",
+          "image": "assets/img/item-ender-pearl.webp",
+          "note": ""
+        },
+        {
+          "name": "Glacier gear",
+          "image": "assets/img/item-frost-chestplate.webp",
+          "note": ""
+        },
+        {
+          "name": "Special Class Roll",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Class Upgrade Token",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Extra Class Token",
+          "image": "",
+          "note": ""
+        },
+        {
+          "name": "Class Reset Token",
+          "image": "",
+          "note": ""
+        }
+      ],
+      "guiIcon": "NETHER_STAR",
+      "links": {
+        "once": "https://buy.stripe.com/5kQ14o6YndGI5fccbW9AA0u",
+        "monthly": null
+      },
+      "regularPrice": 7000,
+      "regularCompareAtPrice": 8700
     },
     {
       "id": "bundle-celestial",
