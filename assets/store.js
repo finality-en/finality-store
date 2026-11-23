@@ -311,6 +311,7 @@
     $('pd-cat').textContent = catOf(p.categoryId)?.name || '';
     $('pd-name').textContent = p.name;
     $('pd-price').replaceChildren(priceLine(p, cur));
+    if (p.fixedPrice) $('pd-price').append(el('p', { class: 'fixed-note', text: 'Fixed price. Sales and discount codes don\'t apply to this item.' }));
     const blocked = upgradeBlock(p);
     $('pd-req').hidden = !p.upgradeFromName;
     $('pd-req').classList.toggle('bad', !!blocked);
@@ -529,7 +530,13 @@
     }
     if (!list.children.length) list.append(el('li', { class: 'muted', text: 'Your basket is empty.' }));
     const sale = c.store.sale, note = $('basket-sale');
-    if (note) { note.hidden = !sale || !S.basket.some(b => onSale(pkgOf(b.packageId) || {})); note.textContent = sale ? `${sale.percent}% sale applied automatically at checkout. Discount codes can't be added on top.` : ''; }
+    if (note) {
+      const fixed = S.basket.some(b => pkgOf(b.packageId)?.fixedPrice);
+      const saleOn = sale && S.basket.some(b => onSale(pkgOf(b.packageId) || {}));
+      note.hidden = !saleOn && !fixed;
+      note.textContent = saleOn ? `${sale.percent}% sale applied automatically at checkout${fixed ? ' (not on fixed-price items)' : ''}. Discount codes can't be added on top.`
+        : fixed ? 'This basket has a fixed-price item, so discount codes can\'t be used on this order.' : '';
+    }
     $('basket-checkout').disabled = !S.basket.length;
     if (!$('basket-dialog').open) $('basket-dialog').showModal();
     presencePage = 'basket'; pingSoon();
