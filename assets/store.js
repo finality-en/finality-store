@@ -303,10 +303,18 @@
   function checkout(p, type, gift) {
     const c = S.catalog;
     if (c.store.checkoutApi) {
-      S.basket = S.basket.filter(b => b.packageId !== p.id);
-      if (type === 'monthly') S.basket = S.basket.filter(b => b.type !== 'monthly');
-      S.basket.push({ packageId: p.id, type, gift });
-      save('fs_basket', S.basket); renderBasketCount(); toast(`${p.name} added to your basket`);
+      const max = type === 'monthly' ? 1 : (p.maxQty || 1);
+      const giftKey = g => (g ? `${g.edition}:${g.name.toLowerCase()}` : '');
+      const same = S.basket.find(b => b.packageId === p.id && b.type === type && giftKey(b.gift) === giftKey(gift));
+      if (same && max > 1) {
+        same.qty = Math.min(max, (same.qty || 1) + 1);
+      } else {
+        S.basket = S.basket.filter(b => b.packageId !== p.id);
+        if (type === 'monthly') S.basket = S.basket.filter(b => b.type !== 'monthly');
+        S.basket.push({ packageId: p.id, type, gift, qty: 1 });
+      }
+      save('fs_basket', S.basket); renderBasketCount();
+      toast(same && max > 1 ? `${p.name} ×${same.qty} in your basket` : `${p.name} added to your basket`);
       return true;
     }
     const link = p.links?.[type];
@@ -337,7 +345,47 @@
   }
 
   // ---------- basket (only when the store server is hosted publicly) ----------
-  function renderBasketCount() { $('basket-count').textContent = String(S.basket.length); pingSoon(); }
+  const qtyOf = b => Math.max(1, Math.floor(Number(b.qty) || 1));
+  function renderBasketCount() { $('basket-count').textContent = String(S.basket.reduce((a, b) => a + qtyOf(b), 0)); pingSoon(); }
+  function setQty(b, n) {
+    const p = pkgOf(b.packageId), max = b.type === 'monthly' ? 1 : (p?.maxQty || 1);
+    if (n < 1) S.basket = S.basket.filter(x => x !== b);
+    else b.qty = Math.min(max, n);
+    save('fs_basket', S.basket); renderBasketCount(); openBasket();
+  }
+  // ---------- spend ranks (Emerald / Obsidian), from data/spend.json (hashed names, whole dollars) ----------
+  async function mySpend() {
+    if (!S.me || !S.spend?.players || !crypto?.subtle) return 0;
+    try { return S.spend.players[await rankKey(cmdNameOf(S.me))] || 0; } catch { return 0; }
+  }
+  async function renderSpendRank(basketMinor) {
+    const box = $('basket-spend'), tiers = (S.catalog?.store?.spendRanks || S.spend?.tiers || []).slice().sort((a, b) => a.threshold - b.threshold);
+    if (!box) return;
+    if (!tiers.length || !S.me) { box.hidden = true; return; }
+    const spent = await mySpend(), basket = Math.floor(basketMinor / 100), after = spent + basket;
+    const next = tiers.find(t => t.threshold > spent);
+    const cur = S.catalog.store.currency;
+    const $$ = d => money(d * 100, cur).replace(/\.00$/, '');
+    const unlocks = tiers.filter(t => t.threshold > spent && t.threshold <= after);
+    const fill = $('bs-fill'), pend = $('bs-pend');
+    box.hidden = false;
+    if (!next) {
+      $('bs-text').replaceChildren(el('b', { text: `${tiers[tiers.length - 1].name} rank unlocked.` }), ' Thank you for everything you do for Finality!');
+      fill.style.width = '100%'; pend.style.width = '0'; return;
+    }
+    const prev = [...tiers].reverse().find(t => t.threshold <= spent)?.threshold || 0;
+    const span = next.threshold - prev;
+    const pct = v => Math.max(0, Math.min(100, ((v - prev) / span) * 100));
+    fill.style.width = `${pct(spent)}%`;
+    pend.style.left = `${pct(spent)}%`; pend.style.width = `${pct(Math.min(after, next.threshold)) - pct(spent)}%`;
+    if (unlocks.length) {
+      const top = unlocks[unlocks.length - 1];
+      $('bs-text').replaceChildren('🎉 This order unlocks the ', el('b', { class: `sr-${top.id}`, text: `${top.name.toUpperCase()} rank` }), '! Same perks as Finality, plus its own exclusive tag.');
+    } else {
+      $('bs-text').replaceChildren('Spend ', el('b', { text: $$(next.threshold - after) }), ' more to unlock the ', el('b', { class: `sr-${next.id}`, text: `${next.name.toUpperCase()} rank` }), '. ',
+        el('small', { text: `You've spent ${$$(spent)} so far${basket ? `, ${$$(basket)} in this basket` : ''}. Gifts you buy count too.` }));
+    }
+  }
 
   // ---------- live viewers (shown to staff in the store admin panel; no personal data) ----------
   const presenceUrl = () => (S.catalog?.store?.checkoutApi || '').replace(/\/api\/checkout$/, '/api/presence') || null;
@@ -352,7 +400,7 @@
     const url = presenceUrl();
     if (!url || leaving) return;
     const body = { sid, page: presencePage || location.hash.replace(/^#\/?/, ''), player: S.me ? { edition: S.me.edition, name: S.me.name } : null,
-      basket: S.basket.map(b => ({ id: b.packageId, type: b.type })), ...extra };
+      basket: S.basket.map(b => ({ id: b.packageId, type: b.type, qty: qtyOf(b) })), ...extra };
     if (presenceRef) { body.ref = presenceRef; presenceRef = ''; }
     fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), keepalive: true }).catch(() => {});
   }
@@ -372,14 +420,27 @@
   function openBasket() {
     const c = S.catalog, list = $('basket-list');
     list.replaceChildren();
+    let totalMinor = 0;
     for (const b of S.basket) {
       const p = pkgOf(b.packageId); if (!p) continue;
-      const amt = b.type === 'monthly' ? (p.monthlyFirstPrice != null ? `${money(p.monthlyFirstPrice, c.store.currency)} first month` : `${money(p.monthlyPrice, c.store.currency)}/mo`) : money(p.price, c.store.currency);
+      const q = qtyOf(b), max = b.type === 'monthly' ? 1 : (p.maxQty || 1);
+      const unit = b.type === 'monthly' ? (p.monthlyFirstPrice != null ? p.monthlyFirstPrice : p.monthlyPrice) : p.price;
+      totalMinor += (unit || 0) * q;
+      const amt = b.type === 'monthly' ? (p.monthlyFirstPrice != null ? `${money(p.monthlyFirstPrice, c.store.currency)} first month` : `${money(p.monthlyPrice, c.store.currency)}/mo`) : money(p.price * q, c.store.currency);
+      const stepper = max > 1 ? el('div', { class: 'qty', role: 'group', 'aria-label': `Quantity of ${p.name}` },
+        el('button', { type: 'button', 'aria-label': 'One less', text: '−', onclick: () => setQty(b, q - 1) }),
+        el('input', { type: 'number', min: '1', max: String(max), value: String(q), inputmode: 'numeric', 'aria-label': 'Quantity',
+          onchange: e => setQty(b, Math.floor(Number(e.target.value) || 1)) }),
+        el('button', { type: 'button', 'aria-label': 'One more', text: '+', disabled: q >= max, onclick: () => setQty(b, q + 1) })) : null;
       list.append(el('li', {}, el('img', { src: safeImg(p.image) || 'assets/img/logo.webp', alt: '' }),
-        el('div', { class: 'bl-name' }, el('b', { text: p.name }), el('small', { text: b.gift ? `Gift for ${b.gift.name}` : (b.type === 'monthly' ? 'Monthly' : 'One-time') })),
-        el('b', { text: amt }),
+        el('div', { class: 'bl-name' }, el('b', { text: p.name }), el('small', { text: b.gift ? `Gift for ${b.gift.name}` : (b.type === 'monthly' ? 'Monthly' : (q > 1 ? `${money(p.price, c.store.currency)} each` : 'One-time')) })),
+        stepper,
+        el('b', { class: 'bl-amt', text: amt }),
         el('button', { class: 'link', type: 'button', text: 'Remove', onclick: () => { S.basket = S.basket.filter(x => x !== b); save('fs_basket', S.basket); renderBasketCount(); openBasket(); } })));
     }
+    const tot = $('basket-total');
+    if (tot) { tot.hidden = !S.basket.length; $('basket-total-amt').textContent = money(totalMinor, c.store.currency); }
+    renderSpendRank(totalMinor);
     if (!list.children.length) list.append(el('li', { class: 'muted', text: 'Your basket is empty.' }));
     const sale = c.store.sale, note = $('basket-sale');
     if (note) { note.hidden = !sale || !S.basket.some(b => onSale(pkgOf(b.packageId) || {})); note.textContent = sale ? `${sale.percent}% sale applied automatically at checkout. Discount codes can't be added on top.` : ''; }
@@ -395,7 +456,7 @@
     const btn = $('basket-checkout'); btn.disabled = true; btn.textContent = 'Opening checkout…';
     try {
       const r = await fetch(S.catalog.store.checkoutApi, { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ player: S.me, giftTo: S.basket[0]?.gift || null, items: S.basket.map(b => ({ packageId: b.packageId, type: b.type })) }) });
+        body: JSON.stringify({ player: S.me, giftTo: S.basket[0]?.gift || null, items: S.basket.map(b => ({ packageId: b.packageId, type: b.type, qty: qtyOf(b) })) }) });
       const j = await r.json();
       if (!r.ok || !/^https:\/\/checkout\.stripe\.com\//.test(j.url)) throw new Error(j.error || 'Checkout is unavailable right now.');
       presencePage = 'checkout'; ping({ event: 'checkout' }); leaving = true;
@@ -527,7 +588,8 @@
         fetch(`data/catalog.json?t=${Date.now()}`).then(r => r.json()),
         fetch(`data/live.json?t=${Date.now()}`).then(r => (r.ok ? r.json() : null)).catch(() => null),
         fetch(`data/ranks.json?t=${Date.now()}`).then(r => (r.ok ? r.json() : null)).catch(() => null),
-      ]).then(([a, b, c]) => { S.ranks = c; return [a, b]; });
+        fetch(`data/spend.json?t=${Date.now()}`).then(r => (r.ok ? r.json() : null)).catch(() => null),
+      ]).then(([a, b, c, d]) => { S.ranks = c; S.spend = d; return [a, b]; });
       S.catalog = cat; S.live = live;
       endSaleIfOver();
       await refreshTier();

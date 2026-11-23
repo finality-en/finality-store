@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T17:06:48.836Z",
+  "generatedAt": "2026-11-23T20:58:49.644Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -12,6 +12,18 @@
     "floodgatePrefix": ".",
     "testMode": false,
     "checkoutApi": "https://store.finalitymc.org/api/checkout",
+    "spendRanks": [
+      {
+        "id": "emerald",
+        "name": "Emerald",
+        "threshold": 200
+      },
+      {
+        "id": "obsidian",
+        "name": "Obsidian",
+        "threshold": 500
+      }
+    ],
     "sale": {
       "percent": 40,
       "label": "CHRISTMAS SALE",
@@ -20,9 +32,16 @@
   },
   "categories": [
     {
+      "id": "bundles",
+      "name": "Bundles",
+      "description": "The best value in the store. Everything inside costs a lot more on its own.",
+      "image": "assets/img/key-bundle.webp",
+      "guiIcon": "CHEST_MINECART"
+    },
+    {
       "id": "ranks",
       "name": "Ranks",
-      "description": "Support the server and unlock perks.",
+      "description": "Support the server and unlock perks. Spend $200 in total to unlock the exclusive Emerald rank, and $500 for Obsidian.",
       "image": "assets/img/rank-finality.webp",
       "guiIcon": "DIAMOND"
     },
@@ -83,6 +102,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 180,
       "compareAtPrice": 300,
       "monthlyPrice": null,
@@ -138,6 +158,44 @@
       "regularCompareAtPrice": null
     },
     {
+      "id": "glacier-bundle",
+      "name": "Glacier Bundle",
+      "categoryId": "bundles",
+      "description": "Gear up in Glacier\nTwo shots at the strongest armour of the season, plus three Relic Keys for a chance at the rarest loot on the server.\n- 2× Glacier Armour Lootbox\n- 3× Relic Key\nWorth $51.75 bought separately. You save $16.75.",
+      "body": "## Gear up in Glacier\nTwo shots at the **strongest armour of the season**, plus three Relic Keys for a chance at the rarest loot on the server.\n\n- **2× Glacier Armour Lootbox**\n- **3× Relic Key**\n\n> Worth **$51.75** bought separately. You save **$16.75**.",
+      "image": "assets/img/glacier-lootbox.webp",
+      "kind": "standard",
+      "badge": "Save 22%",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "maxQty": 25,
+      "price": 2100,
+      "compareAtPrice": 3500,
+      "monthlyPrice": null,
+      "contentsTitle": "Inside",
+      "contents": [
+        {
+          "name": "2× Glacier Armour Lootbox",
+          "image": "assets/img/glacier-lootbox.webp",
+          "note": ""
+        },
+        {
+          "name": "3× Relic Key",
+          "image": "assets/img/key-relic.webp",
+          "note": ""
+        }
+      ],
+      "guiIcon": "DIAMOND_CHESTPLATE",
+      "links": {
+        "once": "https://buy.stripe.com/eVq6oI82rfOQ8ro7VG9AA0y",
+        "monthly": null
+      },
+      "regularPrice": 3500,
+      "regularCompareAtPrice": 5175
+    },
+    {
       "id": "ke-lootbox",
       "name": "Kill Effect Lootbox",
       "categoryId": "cosmetics",
@@ -150,6 +208,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 150,
       "compareAtPrice": 250,
       "monthlyPrice": null,
@@ -267,6 +326,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 450,
       "compareAtPrice": 750,
       "monthlyPrice": null,
@@ -319,6 +379,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 600,
       "compareAtPrice": 1000,
       "monthlyPrice": null,
@@ -345,6 +406,7 @@
       "upgradeFrom": "vip-rank",
       "upgradeFromName": "VIP Rank",
       "upgradeTier": "vip",
+      "maxQty": 1,
       "price": 600,
       "compareAtPrice": 1000,
       "monthlyPrice": null,
@@ -371,6 +433,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 1,
       "price": 900,
       "compareAtPrice": 1500,
       "monthlyPrice": null,
@@ -397,6 +460,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 720,
       "compareAtPrice": 1200,
       "monthlyPrice": null,
@@ -464,6 +528,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 600,
       "compareAtPrice": 1000,
       "monthlyPrice": null,
@@ -581,6 +646,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 2400,
       "compareAtPrice": 4000,
       "monthlyPrice": null,
@@ -595,6 +661,97 @@
       "regularCompareAtPrice": 5000
     },
     {
+      "id": "class-hunter-bundle",
+      "name": "Class Hunter Bundle",
+      "categoryId": "bundles",
+      "description": "Hunt down a special class\nThree 50/50 spins at Berserker, Knight, Thor, Bloodlust, Assassin or Healer, plus a stack of keys to open while you wait.\n- 3× Special Class Roll\n- 5× Finality Key\n- 2× Relic Key\nWorth $59.50 bought separately. You save $17.50.",
+      "body": "## Hunt down a special class\n**Three 50/50 spins** at Berserker, Knight, Thor, Bloodlust, Assassin or Healer, plus a stack of keys to open while you wait.\n\n- **3× Special Class Roll**\n- **5× Finality Key**\n- **2× Relic Key**\n\n> Worth **$59.50** bought separately. You save **$17.50**.",
+      "image": "assets/img/class-roll-5.webp",
+      "kind": "standard",
+      "badge": "Save 24%",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "maxQty": 25,
+      "price": 2520,
+      "compareAtPrice": 4200,
+      "monthlyPrice": null,
+      "contentsTitle": "Inside",
+      "contents": [
+        {
+          "name": "3× Special Class Roll",
+          "image": "assets/img/class-roll.webp",
+          "note": ""
+        },
+        {
+          "name": "5× Finality Key",
+          "image": "assets/img/key-finality.webp",
+          "note": ""
+        },
+        {
+          "name": "2× Relic Key",
+          "image": "assets/img/key-relic.webp",
+          "note": ""
+        }
+      ],
+      "guiIcon": "NETHER_STAR",
+      "links": {
+        "once": "https://buy.stripe.com/28E14obeDdGIePM1xi9AA0z",
+        "monthly": null
+      },
+      "regularPrice": 4200,
+      "regularCompareAtPrice": 5950
+    },
+    {
+      "id": "glacier-lootbox",
+      "name": "Glacier Armour Lootbox",
+      "categoryId": "lootboxes",
+      "description": "Glacier Armour Lootbox\nOpen it for one random piece of the Glacier armour set, the strongest armour this season.\n- Glacier Helmet, Chestplate, Leggings or Boots\n- Collect all 4 for the full set bonus\nThe Glacier Helmet is the rarest piece.",
+      "body": "## Glacier Armour Lootbox\nOpen it for **one random piece** of the Glacier armour set, the strongest armour this season.\n\n- Glacier Helmet, Chestplate, Leggings or Boots\n- Collect all 4 for the **full set bonus**\n> The Glacier Helmet is the rarest piece.",
+      "image": "assets/img/glacier-lootbox.webp",
+      "kind": "standard",
+      "badge": "New",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "maxQty": 25,
+      "price": 900,
+      "compareAtPrice": 1500,
+      "monthlyPrice": null,
+      "contentsTitle": "One of",
+      "contents": [
+        {
+          "name": "Glacier Helmet",
+          "image": "assets/img/item-frost-helmet.webp",
+          "note": ""
+        },
+        {
+          "name": "Glacier Chestplate",
+          "image": "assets/img/item-frost-chestplate.webp",
+          "note": ""
+        },
+        {
+          "name": "Glacier Leggings",
+          "image": "assets/img/item-frost-leggings.webp",
+          "note": ""
+        },
+        {
+          "name": "Glacier Boots",
+          "image": "assets/img/item-frost-boots.webp",
+          "note": ""
+        }
+      ],
+      "guiIcon": "DIAMOND_CHESTPLATE",
+      "links": {
+        "once": "https://buy.stripe.com/8x2dRaeqP3242304Ju9AA0x",
+        "monthly": null
+      },
+      "regularPrice": 1500,
+      "regularCompareAtPrice": null
+    },
+    {
       "id": "mvp-finality",
       "name": "MVP → Finality",
       "categoryId": "rank-upgrades",
@@ -607,6 +764,7 @@
       "upgradeFrom": "mvp-rank",
       "upgradeFromName": "MVP Rank",
       "upgradeTier": "mvp",
+      "maxQty": 1,
       "price": 1500,
       "compareAtPrice": 2500,
       "monthlyPrice": null,
@@ -633,6 +791,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 1,
       "price": 1500,
       "compareAtPrice": 2500,
       "monthlyPrice": null,
@@ -659,6 +818,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 1200,
       "compareAtPrice": 2000,
       "monthlyPrice": null,
@@ -685,6 +845,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 1,
       "price": 3000,
       "compareAtPrice": 5000,
       "monthlyPrice": null,
@@ -711,6 +872,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 1,
       "price": 360,
       "compareAtPrice": 600,
       "monthlyPrice": null,
@@ -746,6 +908,49 @@
       "regularCompareAtPrice": null
     },
     {
+      "id": "key-mega-bundle",
+      "name": "Key Mega Bundle",
+      "categoryId": "bundles",
+      "description": "Seventeen openings\nThe biggest pile of keys in the store. Ten Finality Keys, five Relic Keys and two Kill Effect Lootboxes.\n- 10× Finality Key\n- 5× Relic Key\n- 2× Kill Effect Lootbox\nWorth $71.25 bought separately. You save $26.25.",
+      "body": "## Seventeen openings\nThe biggest pile of keys in the store. Ten Finality Keys, five Relic Keys and two Kill Effect Lootboxes.\n\n- **10× Finality Key**\n- **5× Relic Key**\n- **2× Kill Effect Lootbox**\n\n> Worth **$71.25** bought separately. You save **$26.25**.",
+      "image": "assets/img/key-bundle.webp",
+      "kind": "standard",
+      "badge": "Save 25%",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "maxQty": 25,
+      "price": 2700,
+      "compareAtPrice": 4500,
+      "monthlyPrice": null,
+      "contentsTitle": "Inside",
+      "contents": [
+        {
+          "name": "10× Finality Key",
+          "image": "assets/img/key-finality.webp",
+          "note": ""
+        },
+        {
+          "name": "5× Relic Key",
+          "image": "assets/img/key-relic.webp",
+          "note": ""
+        },
+        {
+          "name": "2× Kill Effect Lootbox",
+          "image": "assets/img/lootbox-ke.webp",
+          "note": ""
+        }
+      ],
+      "guiIcon": "TRIPWIRE_HOOK",
+      "links": {
+        "once": "https://buy.stripe.com/00waEYgyX6eg7nk3Fq9AA0A",
+        "monthly": null
+      },
+      "regularPrice": 4500,
+      "regularCompareAtPrice": 7125
+    },
+    {
       "id": "relic-key",
       "name": "Relic Key",
       "categoryId": "crate-keys",
@@ -758,6 +963,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 435,
       "compareAtPrice": 725,
       "monthlyPrice": null,
@@ -820,6 +1026,7 @@
       "upgradeFrom": "vip-rank",
       "upgradeFromName": "VIP Rank",
       "upgradeTier": "vip",
+      "maxQty": 1,
       "price": 2100,
       "compareAtPrice": 3500,
       "monthlyPrice": null,
@@ -846,6 +1053,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 1050,
       "compareAtPrice": 1750,
       "monthlyPrice": null,
@@ -908,6 +1116,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 1,
       "price": 360,
       "compareAtPrice": 600,
       "monthlyPrice": null,
@@ -943,6 +1152,59 @@
       "regularCompareAtPrice": null
     },
     {
+      "id": "season-domination-bundle",
+      "name": "Season Domination Bundle",
+      "categoryId": "bundles",
+      "description": "Everything you need to own the season\nThe Finality Rank with every perk, two Glacier armour pieces, three class rolls and fifteen crate keys.\nAlready Finality? You still get all the loot.\n- Finality Rank\n- 2× Glacier Armour Lootbox\n- 3× Special Class Roll\n- 10× Finality Key\n- 5× Relic Key\nWorth $176.25 bought separately. You save $57.25.",
+      "body": "## Everything you need to own the season\nThe **Finality Rank** with every perk, two Glacier armour pieces, three class rolls and fifteen crate keys.\n> Already Finality? You still get all the loot.\n\n- **Finality Rank**\n- **2× Glacier Armour Lootbox**\n- **3× Special Class Roll**\n- **10× Finality Key**\n- **5× Relic Key**\n\n> Worth **$176.25** bought separately. You save **$57.25**.",
+      "image": "assets/img/rank-finality.webp",
+      "kind": "standard",
+      "badge": "Best value",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "maxQty": 1,
+      "price": 7140,
+      "compareAtPrice": 11900,
+      "monthlyPrice": null,
+      "contentsTitle": "Inside",
+      "contents": [
+        {
+          "name": "Finality Rank",
+          "image": "assets/img/rank-finality.webp",
+          "note": ""
+        },
+        {
+          "name": "2× Glacier Armour Lootbox",
+          "image": "assets/img/glacier-lootbox.webp",
+          "note": ""
+        },
+        {
+          "name": "3× Special Class Roll",
+          "image": "assets/img/class-roll.webp",
+          "note": ""
+        },
+        {
+          "name": "10× Finality Key",
+          "image": "assets/img/key-finality.webp",
+          "note": ""
+        },
+        {
+          "name": "5× Relic Key",
+          "image": "assets/img/key-relic.webp",
+          "note": ""
+        }
+      ],
+      "guiIcon": "ENCHANTED_GOLDEN_APPLE",
+      "links": {
+        "once": "https://buy.stripe.com/6oU4gAeqP8mo0YW4Ju9AA0B",
+        "monthly": null
+      },
+      "regularPrice": 11900,
+      "regularCompareAtPrice": 17625
+    },
+    {
       "id": "3-relic-key-copy",
       "name": "12× Relic Key",
       "categoryId": "crate-keys",
@@ -955,6 +1217,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 4200,
       "compareAtPrice": 7000,
       "monthlyPrice": null,
@@ -1017,6 +1280,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 2100,
       "compareAtPrice": 3500,
       "monthlyPrice": null,
@@ -1079,6 +1343,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 1,
       "price": 360,
       "compareAtPrice": 600,
       "monthlyPrice": null,
@@ -1126,6 +1391,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 25,
       "price": 1200,
       "compareAtPrice": 2000,
       "monthlyPrice": null,
@@ -1168,6 +1434,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 1,
       "price": 360,
       "compareAtPrice": 600,
       "monthlyPrice": null,
@@ -1215,6 +1482,7 @@
       "upgradeFrom": null,
       "upgradeFromName": null,
       "upgradeTier": null,
+      "maxQty": 1,
       "price": 1500,
       "compareAtPrice": 2500,
       "monthlyPrice": null,
