@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T21:35:46.084Z",
+  "generatedAt": "2026-11-23T21:52:50.340Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -70,13 +70,6 @@
       "guiIcon": "FIREWORK_STAR"
     },
     {
-      "id": "weapons",
-      "name": "Weapons",
-      "description": "Legendary weapons straight from the bosses of Finality.",
-      "image": "assets/img/item-elf-candy-cane.webp",
-      "guiIcon": "NETHERITE_SWORD"
-    },
-    {
       "id": "crate-keys",
       "name": "Crate Keys",
       "description": "",
@@ -106,32 +99,6 @@
     }
   ],
   "packages": [
-    {
-      "id": "elf-candy-cane",
-      "name": "Elf Candy Cane",
-      "categoryId": "weapons",
-      "description": "The Evil Elf's own sword\nRipped from the tiny, sticky hands of the Evil Elf. Normally the only way to get one is a lucky voucher from topping the boss fight.\n- +11 Attack Damage, as hard as the Astral Riftblade\n- 15% chance to send your target floating\n- Sharpness V, Unbreaking III\n- Candy stripe swing effect\nFixed price. Sales and discount codes don't apply.",
-      "body": "## The Evil Elf's own sword\nRipped from the tiny, sticky hands of the **Evil Elf**. Normally the only way to get one is a lucky voucher from topping the boss fight.\n\n- **+11 Attack Damage**, as hard as the Astral Riftblade\n- **15% chance** to send your target floating\n- Sharpness V, Unbreaking III\n- Candy stripe swing effect\n> Fixed price. Sales and discount codes don't apply.",
-      "image": "assets/img/item-elf-candy-cane.webp",
-      "kind": "standard",
-      "badge": "Boss weapon",
-      "giftable": true,
-      "upgradeFrom": null,
-      "upgradeFromName": null,
-      "upgradeTier": null,
-      "maxQty": 25,
-      "fixedPrice": true,
-      "price": 3000,
-      "compareAtPrice": null,
-      "monthlyPrice": null,
-      "contentsTitle": "",
-      "contents": [],
-      "guiIcon": "NETHERITE_SWORD",
-      "links": {
-        "once": "https://buy.stripe.com/28EaEYdmLdGIazwdg09AA0C",
-        "monthly": null
-      }
-    },
     {
       "id": "finality-key",
       "name": "Finality Key",
