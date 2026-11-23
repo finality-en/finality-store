@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T20:58:49.644Z",
+  "generatedAt": "2026-11-23T21:20:58.406Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -12,6 +12,16 @@
     "floodgatePrefix": ".",
     "testMode": false,
     "checkoutApi": "https://store.finalitymc.org/api/checkout",
+    "bonuses": [
+      {
+        "min": 2500,
+        "label": "Finality Key"
+      },
+      {
+        "min": 5000,
+        "label": "Relic Key"
+      }
+    ],
     "spendRanks": [
       {
         "id": "emerald",
@@ -171,6 +181,16 @@
       "upgradeFromName": null,
       "upgradeTier": null,
       "maxQty": 25,
+      "parts": [
+        {
+          "packageId": "glacier-lootbox",
+          "qty": 2
+        },
+        {
+          "packageId": "relic-key",
+          "qty": 3
+        }
+      ],
       "price": 2100,
       "compareAtPrice": 3500,
       "monthlyPrice": null,
@@ -674,6 +694,20 @@
       "upgradeFromName": null,
       "upgradeTier": null,
       "maxQty": 25,
+      "parts": [
+        {
+          "packageId": "special-class-roll",
+          "qty": 3
+        },
+        {
+          "packageId": "finality-key",
+          "qty": 5
+        },
+        {
+          "packageId": "relic-key",
+          "qty": 2
+        }
+      ],
       "price": 2520,
       "compareAtPrice": 4200,
       "monthlyPrice": null,
@@ -921,6 +955,20 @@
       "upgradeFromName": null,
       "upgradeTier": null,
       "maxQty": 25,
+      "parts": [
+        {
+          "packageId": "finality-key",
+          "qty": 10
+        },
+        {
+          "packageId": "relic-key",
+          "qty": 5
+        },
+        {
+          "packageId": "ke-lootbox",
+          "qty": 2
+        }
+      ],
       "price": 2700,
       "compareAtPrice": 4500,
       "monthlyPrice": null,
@@ -1165,6 +1213,28 @@
       "upgradeFromName": null,
       "upgradeTier": null,
       "maxQty": 1,
+      "parts": [
+        {
+          "packageId": "finality-rank",
+          "qty": 1
+        },
+        {
+          "packageId": "glacier-lootbox",
+          "qty": 2
+        },
+        {
+          "packageId": "special-class-roll",
+          "qty": 3
+        },
+        {
+          "packageId": "finality-key",
+          "qty": 10
+        },
+        {
+          "packageId": "relic-key",
+          "qty": 5
+        }
+      ],
       "price": 7140,
       "compareAtPrice": 11900,
       "monthlyPrice": null,

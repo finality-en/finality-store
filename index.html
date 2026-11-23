@@ -150,6 +150,10 @@
           <input type="text" id="gift-name" maxlength="16" placeholder="Friend's username" autocomplete="off" spellcheck="false" aria-label="Friend's username">
         </div>
       </details>
+      <section class="pd-pair" id="pd-pair" hidden>
+        <h3>Goes well with</h3>
+        <div class="pair-list" id="pd-pair-list"></div>
+      </section>
       <p class="err" id="pd-err" role="alert"></p>
       <button class="btn block lg" type="button" id="pd-buy">Continue to checkout</button>
       <p class="fine">You pay on Stripe's secure checkout. Delivery is automatic, usually within a minute. If you are offline, items arrive the next time you join.</p>
@@ -163,6 +167,7 @@
     <h2 id="basket-title">Your basket</h2>
     <ul class="basket-list" id="basket-list"></ul>
     <p class="basket-total" id="basket-total" hidden><span>Total</span><b id="basket-total-amt"></b></p>
+    <div class="basket-hints" id="basket-hints" hidden></div>
     <div class="basket-spend" id="basket-spend" hidden>
       <p id="bs-text"></p>
       <div class="bs-bar" aria-hidden="true"><i id="bs-fill"></i><i class="pend" id="bs-pend"></i></div>

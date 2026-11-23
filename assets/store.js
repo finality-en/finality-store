@@ -132,6 +132,52 @@
   const pkgOf = id => S.catalog.packages.find(p => p.id === id);
   const pkgsIn = id => S.catalog.packages.filter(p => p.categoryId === id);
 
+  // ---------- deals & gentle suggestions ----------
+  const worthOf = p => (p.parts || []).reduce((a, x) => a + ((pkgOf(x.packageId)?.regularPrice ?? pkgOf(x.packageId)?.price) || 0) * x.qty, 0);
+  const refPrice = p => Math.max(p.compareAtPrice || 0, p.regularCompareAtPrice || 0, p.regularPrice || 0, worthOf(p));
+  const savingOf = p => (p.price != null && p.kind !== 'giftcard' && refPrice(p) > p.price ? 1 - p.price / refPrice(p) : 0);
+  const bestDeals = (n = 4) => S.catalog.packages.filter(p => savingOf(p) >= 0.05 && !upgradeBlock(p)).sort((a, b) => savingOf(b) - savingOf(a) || b.price - a.price).slice(0, n);
+  // what pairs well with what (by category); bundles that contain the item always come first
+  const PAIRS = {
+    'crate-keys': ['glacier-lootbox', 'special-class-roll'], lootboxes: ['relic-key', 'finality-key-5'], classes: ['finality-key-5', 'relic-key'],
+    ranks: ['key-bundle', 'starter-kit'], 'rank-upgrades': ['key-bundle', 'starter-kit'], cosmetics: ['ke-lootbox-5', 'finality-key'], bundles: ['glacier-lootbox', 'relic-key'],
+  };
+  function pairsFor(p) {
+    const out = [];
+    const add = x => { if (x && x.id !== p.id && x.price != null && !out.includes(x) && !upgradeBlock(x) && !S.basket.some(b => b.packageId === x.id)) out.push(x); };
+    S.catalog.packages.filter(b => b.parts?.some(x => x.packageId === p.id)).sort((a, b) => savingOf(b) - savingOf(a)).forEach(add);
+    (PAIRS[p.categoryId] || []).map(pkgOf).forEach(add);
+    return out.slice(0, 2);
+  }
+  /** The bundle the basket is closest to, if it's worth mentioning. */
+  function bundleSwap() {
+    const have = id => S.basket.filter(b => b.packageId === id && b.type === 'once').reduce((a, b) => a + qtyOf(b), 0);
+    let best = null;
+    for (const bp of S.catalog.packages.filter(p => p.parts?.length && p.price != null)) {
+      if (S.basket.some(b => b.packageId === bp.id)) continue;
+      let covered = 0; const take = [];
+      for (const part of bp.parts) {
+        const pp = pkgOf(part.packageId); if (!pp || pp.price == null) { covered = 0; break; }
+        const n = Math.min(have(part.packageId), part.qty);
+        if (n > 0) { covered += n * pp.price; take.push([part.packageId, n]); }
+      }
+      if (!covered || covered < bp.price * 0.3) continue;
+      const score = covered / bp.price;
+      if (!best || score > best.score) best = { bp, take, extra: bp.price - covered, score };
+    }
+    return best;
+  }
+  function swapToBundle(s) {
+    const gift = S.basket.find(b => b.packageId === s.take[0][0])?.gift || null;
+    for (const [id, n] of s.take) {
+      let left = n;
+      for (const b of S.basket.filter(x => x.packageId === id && x.type === 'once')) { const used = Math.min(left, qtyOf(b)); b.qty = qtyOf(b) - used; left -= used; }
+    }
+    S.basket = S.basket.filter(b => qtyOf(b) > 0 && b.qty !== 0);
+    S.basket.push({ packageId: s.bp.id, type: 'once', gift, qty: 1 });
+    save('fs_basket', S.basket); renderBasketCount(); toast(`Swapped to the ${s.bp.name}`); openBasket();
+  }
+
   function render() {
     if (!S.catalog) return;
     const r = route();
@@ -159,6 +205,11 @@
     if (c.demo || !c.packages.length) {
       frag.append(el('div', { class: 'empty-state', text: 'The store is being set up. Packages will appear here shortly.' }));
       return frag;
+    }
+    const deals = bestDeals();
+    if (deals.length) {
+      frag.append(el('div', { class: 'section-title' }, el('h2', { text: 'Best deals' }), el('span', { class: 'muted', text: 'The biggest savings in the store right now' })));
+      frag.append(el('div', { class: 'pkg-grid deals' }, deals.map(p => { const c = card(p); c.prepend(el('span', { class: 'deal-save', text: `Save ${Math.round(savingOf(p) * 100)}%` })); return c; })));
     }
     frag.append(el('div', { class: 'section-title' }, el('h2', { text: 'Browse the store' }), el('span', { class: 'muted', text: `${c.packages.length} items` })));
     frag.append(el('div', { class: 'cat-grid' }, c.categories.map(cat => {
@@ -210,7 +261,7 @@
     const d = left === null ? '' : left > 864e5 ? `${Math.floor(left / 864e5)}d ${Math.floor(left % 864e5 / 36e5)}h` : left > 36e5 ? `${Math.floor(left / 36e5)}h ${Math.floor(left % 36e5 / 6e4)}m` : `${Math.max(1, Math.ceil(left / 6e4))}m`;
     bar.replaceChildren(el('b', { text: sale.label || `${sale.percent}% off everything` }),
       el('span', { text: sale.label ? ` · ${sale.percent}% off everything, no code needed` : ' · no code needed, applied at checkout' }),
-      d ? el('span', { class: 'sale-left', text: ` · ends in ${d}` }) : null);
+      ...(d ? [el('span', { class: 'sale-left', text: ` · ends in ${d}` })] : []));
     bar.hidden = false;
     if (left !== null) saleTimer = setTimeout(() => { if (endSaleIfOver()) { renderSaleBar(); render(); } else renderSaleBar(); }, Math.min(left + 500, 60e3));
   }
@@ -287,6 +338,18 @@
       el('span', { class: 'o-label' }, el('b', { text: label }), el('small', { text: sub })), el('span', { class: 'o-amt', text: amt }))));
     $('pd-options').hidden = opts.length < 2;
     $('pd-gift').hidden = !p.giftable; $('pd-gift').open = false; $('gift-name').value = '';
+    const pairs = c.store.checkoutApi ? pairsFor(p) : [];
+    $('pd-pair').hidden = !pairs.length;
+    $('pd-pair-list').replaceChildren(...pairs.map(x => {
+      const inBundle = x.parts?.some(y => y.packageId === p.id);
+      const save = Math.round(savingOf(x) * 100);
+      return el('div', { class: 'pair' },
+        el('img', { src: safeImg(x.image) || 'assets/img/logo.webp', alt: '', loading: 'lazy' }),
+        el('div', { class: 'pair-txt' }, el('b', { text: x.name }),
+          el('small', { text: inBundle ? `Includes this${save ? `, save ${save}%` : ''}` : money(x.price, cur) })),
+        inBundle ? el('button', { class: 'btn ghost sm', type: 'button', text: 'View', onclick: () => go(`#/p/${encodeURIComponent(x.id)}`) })
+          : el('button', { class: 'btn ghost sm', type: 'button', text: 'Add', onclick: e => { quickBuy(x); if (S.me && x.maxQty) { e.target.textContent = 'Added ✓'; e.target.disabled = true; } } }));
+    }));
     $('pd-err').textContent = '';
     $('pd-buy').disabled = !!c.demo || !!blocked;
     $('pd-buy').textContent = c.demo ? 'Opening soon' : blocked ? `Needs ${tierName(p.upgradeTier)}` : c.store.checkoutApi ? 'Add to basket' : 'Continue to checkout';
@@ -441,6 +504,29 @@
     const tot = $('basket-total');
     if (tot) { tot.hidden = !S.basket.length; $('basket-total-amt').textContent = money(totalMinor, c.store.currency); }
     renderSpendRank(totalMinor);
+    // gentle hints: bundle swap + free bonus progress
+    const hints = $('basket-hints');
+    if (hints) {
+      const out = [];
+      const sw = S.basket.length ? bundleSwap() : null;
+      if (sw) {
+        const add = sw.bp.parts.map(x => { const got = sw.take.find(t => t[0] === x.packageId)?.[1] || 0; return x.qty - got > 0 ? `${x.qty - got}× ${pkgOf(x.packageId)?.name}` : null; }).filter(Boolean);
+        out.push(el('div', { class: 'hint' }, el('span', { class: 'hint-ico', text: '💡' }),
+          el('p', {}, 'You\'re part way to the ', el('b', { text: sw.bp.name }), '. ',
+            sw.extra > 0 ? `Swap to it and get ${add.length ? add.join(', ') : 'the rest'} for just ${money(sw.extra, c.store.currency)} more.` : `Swap to it and save ${money(-sw.extra, c.store.currency)}.`),
+          el('button', { class: 'btn ghost sm', type: 'button', text: 'Swap', onclick: () => swapToBundle(sw) })));
+      }
+      const bonuses = (c.store.bonuses || []).slice().sort((a, b) => a.min - b.min);
+      if (bonuses.length && S.basket.length) {
+        const got = bonuses.filter(b => totalMinor >= b.min), next = bonuses.find(b => totalMinor < b.min);
+        const txt = [];
+        if (got.length) txt.push(el('span', {}, 'Free ', el('b', { text: got.map(b => b.label).join(' + ') }), ' included. '));
+        if (next) txt.push(el('span', {}, `Add ${money(next.min - totalMinor, c.store.currency)} more for a free `, el('b', { text: next.label }), '.'));
+        out.push(el('div', { class: `hint${got.length && !next ? ' done' : ''}` }, el('span', { class: 'hint-ico', text: '🎁' }), el('p', {}, ...txt)));
+      }
+      hints.replaceChildren(...out);
+      hints.hidden = !out.length;
+    }
     if (!list.children.length) list.append(el('li', { class: 'muted', text: 'Your basket is empty.' }));
     const sale = c.store.sale, note = $('basket-sale');
     if (note) { note.hidden = !sale || !S.basket.some(b => onSale(pkgOf(b.packageId) || {})); note.textContent = sale ? `${sale.percent}% sale applied automatically at checkout. Discount codes can't be added on top.` : ''; }

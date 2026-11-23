@@ -186,7 +186,8 @@ h1, h2, h3 { margin: 0; line-height: 1.2; font-weight: 800; letter-spacing: -.01
 /* ---------- dialogs ---------- */
 dialog { width: min(820px, 100% - 24px); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid var(--line-2); border-radius: 22px; background: var(--night-2); color: var(--snow); box-shadow: 0 30px 80px rgba(0, 0, 0, .6); }
 dialog::backdrop { background: rgba(2, 6, 14, .72); backdrop-filter: blur(3px); }
-#login-dialog, #basket-dialog { width: min(440px, 100% - 24px); }
+#login-dialog { width: min(440px, 100% - 24px); }
+#basket-dialog { width: min(540px, 100% - 24px); }
 .dlg { position: relative; padding: 26px; overflow: auto; max-height: calc(100dvh - 34px); }
 .close { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .06); color: var(--snow); font-size: 24px; line-height: 1; cursor: pointer; z-index: 2; }
 .close:hover { background: rgba(255, 255, 255, .12); }
@@ -341,3 +342,25 @@ details.faq p { margin: 10px 0 0; }
 .bs-bar i.pend { background: repeating-linear-gradient(45deg, rgba(85, 239, 196, .55) 0 6px, rgba(85, 239, 196, .25) 6px 12px); border-radius: 0 99px 99px 0; }
 .sr-emerald { color: #2ecc71; }
 .sr-obsidian { color: #b48cff; }
+
+/* best deals */
+.pkg-grid.deals { margin-bottom: 28px; }
+.pkg-grid.deals .pkg { position: relative; outline: 1px solid rgba(255, 196, 0, .28); }
+.deal-save { position: absolute; top: 10px; right: 10px; z-index: 2; padding: 3px 9px; border-radius: 99px; background: linear-gradient(90deg, #ffb300, #ffd54f); color: #241a00; font-size: 12px; font-weight: 800; letter-spacing: .02em; }
+/* goes well with (package dialog) */
+.pd-pair { margin: 4px 0 12px; }
+.pd-pair h3 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.pair-list { display: grid; gap: 8px; }
+.pair { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; background: var(--panel); }
+.pair img { width: 38px; height: 38px; object-fit: contain; }
+.pair-txt { display: flex; flex-direction: column; margin-right: auto; min-width: 0; }
+.pair-txt small { color: var(--muted); }
+.btn.sm { padding: 6px 12px; font-size: 13px; min-height: 0; }
+/* basket hints */
+.basket-hints { display: grid; gap: 8px; margin: 0 0 10px; }
+.hint { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; background: var(--panel); border: 1px dashed rgba(255, 255, 255, .12); }
+.hint p { margin: 0; font-size: 13.5px; line-height: 1.45; flex: 1; }
+.hint.done { border-style: solid; border-color: rgba(46, 204, 113, .35); }
+.hint-ico { font-size: 18px; }
+.basket-list .bl-name { flex: 1 1 110px; min-width: 0; }
+.basket-list .qty, .basket-list .bl-amt, .basket-list .link { flex-shrink: 0; }
