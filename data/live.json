@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-24T02:38:00.392Z",
+  "generatedAt": "2026-11-24T02:46:09.966Z",
   "recentPayments": [
+    {
+      "player": "sp5yder",
+      "edition": "java",
+      "items": [
+        "VIP Rank"
+      ],
+      "at": 1795488347493
+    },
     {
       "player": "SirRolex",
       "edition": "java",
@@ -40,16 +48,6 @@
         "MVP Rank"
       ],
       "at": 1795358176543
-    },
-    {
-      "player": "TrevorChow5149",
-      "edition": "java",
-      "items": [
-        "5x Special Class Roll",
-        "VIP → Finality",
-        "12× Relic Key"
-      ],
-      "at": 1795316343707
     }
   ],
   "topCustomer": {
@@ -58,15 +56,15 @@
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 59
+    "percent": 63
   },
   "server": {
     "online": true,
-    "players": 5,
+    "players": 4,
     "max": 100
   },
   "players": {
-    "online": 5,
+    "online": 4,
     "max": 100
   }
 }
