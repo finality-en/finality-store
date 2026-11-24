@@ -206,6 +206,11 @@
       frag.append(el('div', { class: 'empty-state', text: 'The store is being set up. Packages will appear here shortly.' }));
       return frag;
     }
+    const featured = c.packages.filter(p => p.featured);
+    if (featured.length) {
+      frag.append(el('div', { class: 'section-title' }, el('h2', { text: 'New this Christmas' }), el('span', { class: 'muted', text: 'Limited seasonal items' })));
+      frag.append(el('div', { class: 'pkg-grid featured' }, featured.map(card)));
+    }
     const deals = bestDeals();
     if (deals.length) {
       frag.append(el('div', { class: 'section-title' }, el('h2', { text: 'Best deals' }), el('span', { class: 'muted', text: 'The biggest savings in the store right now' })));

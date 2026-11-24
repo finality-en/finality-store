@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T21:52:50.340Z",
+  "generatedAt": "2026-11-24T18:29:39.450Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -65,9 +65,9 @@
     {
       "id": "cosmetics",
       "name": "Cosmetics",
-      "description": "Kill effects and kill sounds for /ke. Cosmetic only, no gameplay advantage.",
-      "image": "assets/img/ke-collection.webp",
-      "guiIcon": "FIREWORK_STAR"
+      "description": "Look the part. Seasonal cosmetics for Finality.",
+      "image": "assets/img/item-santa-hat.webp",
+      "guiIcon": "RED_WOOL"
     },
     {
       "id": "crate-keys",
@@ -1656,6 +1656,33 @@
       },
       "regularPrice": 2500,
       "regularCompareAtPrice": 3600
+    },
+    {
+      "id": "santa-hat",
+      "name": "Santa Hat",
+      "categoryId": "cosmetics",
+      "description": "Get festive\nA proper 3D Santa Hat with a big fluffy bobble.\n- +2 hearts while you wear it\n- Attach it to your helmet: hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\n- Shift + right-click the helmet to take the hat back off whenever you like\nFixed price. Sales and discount codes don't apply.",
+      "body": "## Get festive\nA proper 3D **Santa Hat** with a big fluffy bobble.\n\n- **+2 hearts** while you wear it\n- **Attach it to your helmet:** hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\n- **Shift + right-click** the helmet to take the hat back off whenever you like\n> Fixed price. Sales and discount codes don't apply.",
+      "image": "assets/img/item-santa-hat.webp",
+      "kind": "standard",
+      "badge": "Christmas",
+      "giftable": true,
+      "upgradeFrom": null,
+      "upgradeFromName": null,
+      "upgradeTier": null,
+      "maxQty": 25,
+      "fixedPrice": true,
+      "featured": true,
+      "price": 500,
+      "compareAtPrice": null,
+      "monthlyPrice": null,
+      "contentsTitle": "",
+      "contents": [],
+      "guiIcon": "RED_WOOL",
+      "links": {
+        "once": "https://buy.stripe.com/4gM00kfuT9qsazwfo89AA0D",
+        "monthly": null
+      }
     }
   ]
 }
