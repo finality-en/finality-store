@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T18:29:39.450Z",
+  "generatedAt": "2026-11-24T18:33:10.914Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -1662,7 +1662,7 @@
       "name": "Santa Hat",
       "categoryId": "cosmetics",
       "description": "Get festive\nA proper 3D Santa Hat with a big fluffy bobble.\n- +2 hearts while you wear it\n- Attach it to your helmet: hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\n- Shift + right-click the helmet to take the hat back off whenever you like\nFixed price. Sales and discount codes don't apply.",
-      "body": "## Get festive\nA proper 3D **Santa Hat** with a big fluffy bobble.\n\n- **+2 hearts** while you wear it\n- **Attach it to your helmet:** hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\n- **Shift + right-click** the helmet to take the hat back off whenever you like\n> Fixed price. Sales and discount codes don't apply.",
+      "body": "## Get festive\r\nA proper 3D **Santa Hat** with a big fluffy bobble.\r\n\r\n- **+2 hearts** while you wear it\r\n- **Attach it to your helmet:** hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\r\n- **Shift + right-click** the helmet to take the hat back off whenever you like\r\n> Fixed price. Sales and discount codes don't apply.",
       "image": "assets/img/item-santa-hat.webp",
       "kind": "standard",
       "badge": "Christmas",
@@ -1673,14 +1673,14 @@
       "maxQty": 25,
       "fixedPrice": true,
       "featured": true,
-      "price": 500,
+      "price": 1000,
       "compareAtPrice": null,
       "monthlyPrice": null,
       "contentsTitle": "",
       "contents": [],
       "guiIcon": "RED_WOOL",
       "links": {
-        "once": "https://buy.stripe.com/4gM00kfuT9qsazwfo89AA0D",
+        "once": "https://buy.stripe.com/28EfZidmL6egePMcbW9AA0E",
         "monthly": null
       }
     }
