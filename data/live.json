@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T20:09:11.300Z",
+  "generatedAt": "2026-11-25T20:29:41.196Z",
   "recentPayments": [
     {
       "player": "SirRolex",
@@ -62,11 +62,11 @@
   },
   "server": {
     "online": true,
-    "players": 41,
+    "players": 37,
     "max": 100
   },
   "players": {
-    "online": 41,
+    "online": 37,
     "max": 100
   }
 }
