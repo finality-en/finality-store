@@ -195,9 +195,18 @@
     document.title = r.kind === 'c' && catOf(r.id) ? `${catOf(r.id).name} · ${S.catalog.store.name} Store` : `${S.catalog.store.name} Store`;
   }
 
+  // category buttons across the top of every page (Home first)
+  function catTabs(active) {
+    const c = S.catalog;
+    return el('nav', { class: 'cat-tabs', 'aria-label': 'Categories' },
+      el('a', { href: '#/', class: active ? null : 'on', text: 'Home' }),
+      c.categories.filter(x => pkgsIn(x.id).length).map(x => el('a', { href: `#/c/${encodeURIComponent(x.id)}`, class: x.id === active ? 'on' : null, text: x.name })));
+  }
+
   function homeView() {
     const c = S.catalog;
     const frag = document.createDocumentFragment();
+    if (!c.demo && c.packages.length) frag.append(catTabs(null));
     const about = lines(c.store.about);
     frag.append(el('section', { class: 'intro' },
       el('h2', { text: c.store.tagline || `Welcome to the ${c.store.name} store` }),
@@ -234,7 +243,7 @@
   function categoryView(id) {
     const c = S.catalog, cat = catOf(id);
     const frag = document.createDocumentFragment();
-    frag.append(el('nav', { class: 'cat-tabs', 'aria-label': 'Categories' }, c.categories.map(x => el('a', { href: `#/c/${encodeURIComponent(x.id)}`, class: x.id === id ? 'on' : null, text: x.name }))));
+    frag.append(catTabs(id));
     frag.append(el('div', { class: 'cat-head' },
       el('div', { class: 'crumbs' }, el('a', { href: '#/', text: 'Store' }), el('span', { text: '/' }), el('span', { text: cat?.name || 'Packages' })),
       el('h2', { text: cat?.name || 'Packages' }), cat?.description ? el('p', { text: cat.description }) : null));
