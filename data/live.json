@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-25T18:06:28.306Z",
+  "generatedAt": "2026-11-25T18:16:15.714Z",
   "recentPayments": [
+    {
+      "player": "Jamiroquai",
+      "edition": "java",
+      "items": [
+        "Relic Key"
+      ],
+      "at": 1795630559851
+    },
     {
       "player": "qon1k_",
       "edition": "java",
@@ -40,14 +48,6 @@
         "Relic Key"
       ],
       "at": 1795434664671
-    },
-    {
-      "player": "Fillybilly3000",
-      "edition": "java",
-      "items": [
-        "Relic Key"
-      ],
-      "at": 1795434557545
     }
   ],
   "topCustomer": {
@@ -56,15 +56,15 @@
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 77
+    "percent": 79
   },
   "server": {
     "online": true,
-    "players": 30,
+    "players": 27,
     "max": 100
   },
   "players": {
-    "online": 30,
+    "online": 27,
     "max": 100
   }
 }
