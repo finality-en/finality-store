@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-11-25T19:09:51.397Z",
+  "generatedAt": "2026-11-25T19:28:29.313Z",
   "recentPayments": [
+    {
+      "player": "SirRolex",
+      "edition": "java",
+      "items": [
+        "Santa Hat",
+        "Glacier Bundle",
+        "6x Relic Key"
+      ],
+      "at": 1795634886057
+    },
     {
       "player": "qon1k_",
       "edition": "java",
@@ -40,14 +50,6 @@
         "MVP Rank"
       ],
       "at": 1795617446818
-    },
-    {
-      "player": "sp5yder",
-      "edition": "java",
-      "items": [
-        "VIP Rank"
-      ],
-      "at": 1795488347493
     }
   ],
   "topCustomer": {
@@ -56,15 +58,15 @@
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 81
+    "percent": 100
   },
   "server": {
     "online": true,
-    "players": 3,
+    "players": 26,
     "max": 100
   },
   "players": {
-    "online": 3,
+    "online": 26,
     "max": 100
   }
 }
