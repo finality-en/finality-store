@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T17:00:13.353Z",
+  "generatedAt": "2026-11-25T17:20:31.254Z",
   "recentPayments": [
     {
       "player": "BladeeMC",
@@ -60,11 +60,11 @@
   },
   "server": {
     "online": true,
-    "players": 26,
+    "players": 29,
     "max": 100
   },
   "players": {
-    "online": 26,
+    "online": 29,
     "max": 100
   }
 }
