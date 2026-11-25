@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-25T17:41:05.305Z",
+  "generatedAt": "2026-11-25T17:55:29.660Z",
   "recentPayments": [
+    {
+      "player": "qon1k_",
+      "edition": "java",
+      "items": [
+        "Key Bundle"
+      ],
+      "at": 1795629324427
+    },
     {
       "player": "BladeeMC",
       "edition": "java",
@@ -40,14 +48,6 @@
         "VIP → MVP"
       ],
       "at": 1795363756236
-    },
-    {
-      "player": "PLN1ko",
-      "edition": "java",
-      "items": [
-        "VIP → MVP"
-      ],
-      "at": 1795359944934
     }
   ],
   "topCustomer": {
@@ -56,15 +56,15 @@
   },
   "goal": {
     "title": "Monthly server costs",
-    "percent": 69
+    "percent": 74
   },
   "server": {
     "online": true,
-    "players": 34,
+    "players": 35,
     "max": 100
   },
   "players": {
-    "online": 34,
+    "online": 35,
     "max": 100
   }
 }
