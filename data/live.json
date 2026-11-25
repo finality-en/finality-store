@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-25T22:39:06.448Z",
+  "generatedAt": "2026-11-25T22:46:39.770Z",
   "recentPayments": [
+    {
+      "player": "V1tray_",
+      "edition": "java",
+      "items": [
+        "2× Relic Key"
+      ],
+      "at": 1795646779368
+    },
     {
       "player": "SirRolex",
       "edition": "java",
@@ -42,14 +50,6 @@
         "Key Bundle"
       ],
       "at": 1795629324427
-    },
-    {
-      "player": "BladeeMC",
-      "edition": "java",
-      "items": [
-        "MVP Rank"
-      ],
-      "at": 1795617446818
     }
   ],
   "topCustomer": {
