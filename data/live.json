@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-26T15:31:15.868Z",
+  "generatedAt": "2026-11-26T15:38:25.367Z",
   "recentPayments": [
+    {
+      "player": "HT1ofPeace",
+      "edition": "java",
+      "items": [
+        "Key Mega Bundle"
+      ],
+      "at": 1795707494378
+    },
     {
       "player": "V1tray_",
       "edition": "java",
@@ -41,16 +49,6 @@
         "2× Relic Key"
       ],
       "at": 1795646779368
-    },
-    {
-      "player": "SirRolex",
-      "edition": "java",
-      "items": [
-        "Santa Hat",
-        "Glacier Bundle",
-        "6x Relic Key"
-      ],
-      "at": 1795634886057
     }
   ],
   "topCustomer": {
@@ -63,11 +61,11 @@
   },
   "server": {
     "online": true,
-    "players": 24,
+    "players": 25,
     "max": 100
   },
   "players": {
-    "online": 24,
+    "online": 25,
     "max": 100
   }
 }
