@@ -1,6 +1,15 @@
 {
-  "generatedAt": "2026-11-26T13:04:17.186Z",
+  "generatedAt": "2026-11-26T13:08:34.054Z",
   "recentPayments": [
+    {
+      "player": "V1tray_",
+      "edition": "java",
+      "items": [
+        "Relic Key",
+        "6x Relic Key"
+      ],
+      "at": 1795698514051
+    },
     {
       "player": "V1tray_",
       "edition": "java",
@@ -42,14 +51,6 @@
         "6x Relic Key"
       ],
       "at": 1795634886057
-    },
-    {
-      "player": "qon1k_",
-      "edition": "java",
-      "items": [
-        "Relic Key"
-      ],
-      "at": 1795630697222
     }
   ],
   "topCustomer": {
@@ -62,11 +63,11 @@
   },
   "server": {
     "online": true,
-    "players": 13,
+    "players": 11,
     "max": 100
   },
   "players": {
-    "online": 13,
+    "online": 11,
     "max": 100
   }
 }
