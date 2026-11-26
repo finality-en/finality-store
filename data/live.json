@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T15:38:25.367Z",
+  "generatedAt": "2026-11-26T15:42:43.145Z",
   "recentPayments": [
     {
       "player": "HT1ofPeace",
@@ -61,11 +61,11 @@
   },
   "server": {
     "online": true,
-    "players": 25,
+    "players": 7,
     "max": 100
   },
   "players": {
-    "online": 25,
+    "online": 7,
     "max": 100
   }
 }
