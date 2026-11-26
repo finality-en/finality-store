@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-26T00:44:35.693Z",
+  "generatedAt": "2026-11-26T00:58:50.862Z",
   "recentPayments": [
+    {
+      "player": "SirRolex",
+      "edition": "java",
+      "items": [
+        "6x Relic Key"
+      ],
+      "at": 1795654726285
+    },
     {
       "player": "V1tray_",
       "edition": "java",
@@ -42,14 +50,6 @@
         "Glacier Armour Lootbox"
       ],
       "at": 1795629965235
-    },
-    {
-      "player": "qon1k_",
-      "edition": "java",
-      "items": [
-        "Key Bundle"
-      ],
-      "at": 1795629324427
     }
   ],
   "topCustomer": {
@@ -62,11 +62,11 @@
   },
   "server": {
     "online": true,
-    "players": 11,
+    "players": 13,
     "max": 100
   },
   "players": {
-    "online": 11,
+    "online": 13,
     "max": 100
   }
 }
