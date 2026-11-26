@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-26T12:59:20.674Z",
+  "generatedAt": "2026-11-26T13:04:17.186Z",
   "recentPayments": [
+    {
+      "player": "V1tray_",
+      "edition": "java",
+      "items": [
+        "3× Relic Key"
+      ],
+      "at": 1795698239660
+    },
     {
       "player": "V1tray_",
       "edition": "java",
@@ -42,14 +50,6 @@
         "Relic Key"
       ],
       "at": 1795630697222
-    },
-    {
-      "player": "Jamiroquai",
-      "edition": "java",
-      "items": [
-        "Relic Key"
-      ],
-      "at": 1795630559851
     }
   ],
   "topCustomer": {
@@ -62,11 +62,11 @@
   },
   "server": {
     "online": true,
-    "players": 12,
+    "players": 13,
     "max": 100
   },
   "players": {
-    "online": 12,
+    "online": 13,
     "max": 100
   }
 }
