@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T18:37:29.171Z",
+  "generatedAt": "2026-11-26T00:03:52.882Z",
   "store": {
     "name": "Finality SMP",
     "tagline": "Welcome to the official Finality SMP store.",
@@ -1661,8 +1661,8 @@
       "id": "santa-hat",
       "name": "Santa Hat",
       "categoryId": "cosmetics",
-      "description": "Get festive\nFree with MVP rank or higher (one per player)\nA proper 3D Santa Hat with a big fluffy bobble.\n- +2 hearts while you wear it\n- Attach it to your helmet: hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\n- Shift + right-click the helmet to take the hat back off whenever you like\nFixed price. Sales and discount codes don't apply.",
-      "body": "## Get festive\n> 🎅 **Free with MVP rank or higher** (one per player)\n\nA proper 3D **Santa Hat** with a big fluffy bobble.\n\n- **+2 hearts** while you wear it\n- **Attach it to your helmet:** hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\n- **Shift + right-click** the helmet to take the hat back off whenever you like\n> Fixed price. Sales and discount codes don't apply.",
+      "description": "Get festive\nFree with MVP rank or higher (one per player)\nA proper 3D Santa Hat with a big fluffy bobble.\n- +2 hearts while you wear it\n- Attach it to your helmet: hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\n- Right-click the helmet to take the hat back off whenever you like\nFixed price. Sales and discount codes don't apply.",
+      "body": "## Get festive\n> 🎅 **Free with MVP rank or higher** (one per player)\n\nA proper 3D **Santa Hat** with a big fluffy bobble.\n\n- **+2 hearts** while you wear it\n- **Attach it to your helmet:** hold the hat on your cursor and click your helmet. You keep all your armour, enchants and durability, and everyone sees the Santa Hat instead\n- **Right-click** the helmet to take the hat back off whenever you like\n> Fixed price. Sales and discount codes don't apply.",
       "image": "assets/img/item-santa-hat.webp",
       "kind": "standard",
       "badge": "Christmas",
