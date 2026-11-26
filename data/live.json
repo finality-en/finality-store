@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-26T15:42:43.145Z",
+  "generatedAt": "2026-11-26T15:47:12.918Z",
   "recentPayments": [
+    {
+      "player": "SirRolex",
+      "edition": "java",
+      "items": [
+        "VIP → Finality"
+      ],
+      "at": 1795708013378
+    },
     {
       "player": "HT1ofPeace",
       "edition": "java",
@@ -41,18 +49,10 @@
         "6x Relic Key"
       ],
       "at": 1795654726285
-    },
-    {
-      "player": "V1tray_",
-      "edition": "java",
-      "items": [
-        "2× Relic Key"
-      ],
-      "at": 1795646779368
     }
   ],
   "topCustomer": {
-    "player": "TrevorChow5149",
+    "player": "SirRolex",
     "edition": "java"
   },
   "goal": {
@@ -61,11 +61,11 @@
   },
   "server": {
     "online": true,
-    "players": 7,
+    "players": 23,
     "max": 100
   },
   "players": {
-    "online": 7,
+    "online": 23,
     "max": 100
   }
 }
