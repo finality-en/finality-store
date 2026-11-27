@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T22:57:14.881Z",
+  "generatedAt": "2026-11-27T23:17:35.222Z",
   "recentPayments": [
     {
       "player": "Pairyma_",
@@ -63,11 +63,11 @@
   },
   "server": {
     "online": true,
-    "players": 22,
+    "players": 19,
     "max": 100
   },
   "players": {
-    "online": 22,
+    "online": 19,
     "max": 100
   }
 }
