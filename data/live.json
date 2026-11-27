@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-27T13:42:07.002Z",
+  "generatedAt": "2026-11-27T14:02:10.082Z",
   "recentPayments": [
+    {
+      "player": "qon1k_",
+      "edition": "java",
+      "items": [
+        "2× Glacier Armour Lootbox"
+      ],
+      "at": 1795788121095
+    },
     {
       "player": "Larrydestroyer1",
       "edition": "java",
@@ -43,14 +51,6 @@
         "3× Relic Key"
       ],
       "at": 1795698239660
-    },
-    {
-      "player": "V1tray_",
-      "edition": "java",
-      "items": [
-        "Glacier Armour Lootbox"
-      ],
-      "at": 1795697949605
     }
   ],
   "topCustomer": {
