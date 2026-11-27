@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T15:06:20.982Z",
+  "generatedAt": "2026-11-27T15:26:47.983Z",
   "recentPayments": [
     {
       "player": "qon1k_",
@@ -63,11 +63,11 @@
   },
   "server": {
     "online": true,
-    "players": 20,
+    "players": 23,
     "max": 100
   },
   "players": {
-    "online": 20,
+    "online": 23,
     "max": 100
   }
 }
