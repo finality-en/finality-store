@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-11-27T02:47:38.468Z",
+  "generatedAt": "2026-11-27T02:50:43.784Z",
   "recentPayments": [
+    {
+      "player": "Larrydestroyer1",
+      "edition": "java",
+      "items": [
+        "2× 5× Finality Key",
+        "12× Relic Key",
+        "Finality Rank"
+      ],
+      "at": 1795747840892
+    },
     {
       "player": "SirRolex",
       "edition": "java",
@@ -41,14 +51,6 @@
         "Glacier Armour Lootbox"
       ],
       "at": 1795697949605
-    },
-    {
-      "player": "SirRolex",
-      "edition": "java",
-      "items": [
-        "6x Relic Key"
-      ],
-      "at": 1795654726285
     }
   ],
   "topCustomer": {
