@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-27T21:20:00.423Z",
+  "generatedAt": "2026-11-27T21:35:55.969Z",
   "recentPayments": [
+    {
+      "player": "Pairyma_",
+      "edition": "java",
+      "items": [
+        "Unban"
+      ],
+      "at": 1795815351289
+    },
     {
       "player": "Nesoky",
       "edition": "java",
@@ -43,14 +51,6 @@
         "Finality Rank"
       ],
       "at": 1795747840892
-    },
-    {
-      "player": "SirRolex",
-      "edition": "java",
-      "items": [
-        "VIP → Finality"
-      ],
-      "at": 1795708013378
     }
   ],
   "topCustomer": {
@@ -63,11 +63,11 @@
   },
   "server": {
     "online": true,
-    "players": 30,
+    "players": 27,
     "max": 100
   },
   "players": {
-    "online": 30,
+    "online": 27,
     "max": 100
   }
 }
