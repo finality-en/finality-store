@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-27T20:33:59.123Z",
+  "generatedAt": "2026-11-27T20:39:20.779Z",
   "recentPayments": [
+    {
+      "player": "Nesoky",
+      "edition": "java",
+      "items": [
+        "MVP Rank"
+      ],
+      "at": 1795811951001
+    },
     {
       "player": "Larrydestroyer1",
       "edition": "java",
@@ -43,14 +51,6 @@
         "VIP → Finality"
       ],
       "at": 1795708013378
-    },
-    {
-      "player": "HT1ofPeace",
-      "edition": "java",
-      "items": [
-        "Key Mega Bundle"
-      ],
-      "at": 1795707494378
     }
   ],
   "topCustomer": {
