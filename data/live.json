@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T16:42:56.998Z",
+  "generatedAt": "2026-11-28T17:03:16.395Z",
   "recentPayments": [
     {
       "player": "Opposite__",
@@ -61,11 +61,11 @@
   },
   "server": {
     "online": true,
-    "players": 22,
+    "players": 13,
     "max": 100
   },
   "players": {
-    "online": 22,
+    "online": 13,
     "max": 100
   }
 }
