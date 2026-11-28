@@ -1,6 +1,15 @@
 {
-  "generatedAt": "2026-11-28T18:04:15.863Z",
+  "generatedAt": "2026-11-28T18:08:21.476Z",
   "recentPayments": [
+    {
+      "player": "starsmcc",
+      "edition": "java",
+      "items": [
+        "Relic Key",
+        "Glacier Armour Lootbox"
+      ],
+      "at": 1795889297824
+    },
     {
       "player": "Opposite__",
       "edition": "java",
@@ -40,15 +49,6 @@
         "MVP Rank"
       ],
       "at": 1795811951001
-    },
-    {
-      "player": "Larrydestroyer1",
-      "edition": "java",
-      "items": [
-        "2× 12× Relic Key",
-        "2× 5× Finality Key"
-      ],
-      "at": 1795811630901
     }
   ],
   "topCustomer": {
