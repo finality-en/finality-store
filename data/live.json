@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-28T12:07:49.517Z",
+  "generatedAt": "2026-11-28T12:18:40.027Z",
   "recentPayments": [
+    {
+      "player": "_ceiler",
+      "edition": "java",
+      "items": [
+        "MVP → Finality"
+      ],
+      "at": 1795868303120
+    },
     {
       "player": "scientistalt12",
       "edition": "java",
@@ -41,14 +49,6 @@
         "Key Bundle"
       ],
       "at": 1795788304108
-    },
-    {
-      "player": "qon1k_",
-      "edition": "java",
-      "items": [
-        "2× Glacier Armour Lootbox"
-      ],
-      "at": 1795788121095
     }
   ],
   "topCustomer": {
@@ -61,11 +61,11 @@
   },
   "server": {
     "online": true,
-    "players": 12,
+    "players": 11,
     "max": 100
   },
   "players": {
-    "online": 12,
+    "online": 11,
     "max": 100
   }
 }
