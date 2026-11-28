@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2026-11-28T12:38:55.027Z",
+  "generatedAt": "2026-11-28T12:59:03.125Z",
   "recentPayments": [
+    {
+      "player": "Opposite__",
+      "edition": "java",
+      "items": [
+        "3× Relic Key"
+      ],
+      "at": 1795870727396
+    },
     {
       "player": "_ceiler",
       "edition": "java",
@@ -41,14 +49,6 @@
         "2× 5× Finality Key"
       ],
       "at": 1795811630901
-    },
-    {
-      "player": "qon1k_",
-      "edition": "java",
-      "items": [
-        "Key Bundle"
-      ],
-      "at": 1795788304108
     }
   ],
   "topCustomer": {
@@ -61,11 +61,11 @@
   },
   "server": {
     "online": true,
-    "players": 19,
+    "players": 21,
     "max": 100
   },
   "players": {
-    "online": 19,
+    "online": 21,
     "max": 100
   }
 }
