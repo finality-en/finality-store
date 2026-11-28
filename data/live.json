@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T19:09:19.609Z",
+  "generatedAt": "2026-11-28T19:29:38.649Z",
   "recentPayments": [
     {
       "player": "starsmcc",
@@ -61,11 +61,11 @@
   },
   "server": {
     "online": true,
-    "players": 23,
+    "players": 15,
     "max": 100
   },
   "players": {
-    "online": 23,
+    "online": 15,
     "max": 100
   }
 }
